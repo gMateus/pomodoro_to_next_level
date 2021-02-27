@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 
 import challenges from '../../challenges.json'
 
@@ -37,6 +37,8 @@ interface ChallengesContextData {
 export const ChallengesContext = createContext({} as ChallengesContextData);
 
 export function ChallengesProvider({ children, ...rest }: ChallengesProviderProps) {
+
+
 
 
     const [level, setLevel] = useState(rest.level)
