@@ -27,7 +27,7 @@ export function CountingDown() {
                     <span>{minutesLeft}</span>
                     <span>{minutesRight}</span>
                 </div>
-                <span className={styles.pontos}>:</span>
+                <span className={styles.pontos} style={{ fontSize: "4rem" }}>:</span>
                 <div>
                     <span>{secondsLeft}</span>
                     <span>{secondsRight}</span>

@@ -56,11 +56,10 @@ export default function Home(props: HomeProps) {
               <Challengesbox />
             </div>
           </section>
+          <footer>
+            <a href="https://github.com/gMateus/pomodoro_to_next_level" > Meu Github!</a>
+          </footer>
         </CountDownProvider>
-
-        <footer>
-          <a href="https://github.com/gMateus/pomodoro_to_next_level" > Meu Github!</a>
-        </footer>
       </div>
     </ChallengesProvider>
   )

@@ -63,6 +63,11 @@
 }
 
 @media (max-width: 720px) {
+
+    .container {
+        height: 100%;
+    }
+
     .container section {
         display: flex;
         flex-direction: column;
@@ -70,20 +75,19 @@
     }
 
     .container section > div:last-child {
-        height: 17rem;
+        height: 19.5rem;
     }
 
     .container header {
-        height: 3rem;
+        height: 2.8rem;
     }
 
     .container header img {
-        height: 2.8rem;
-        margin-bottom: 13px;
+        height: 3rem;
     }
 
     .container footer {
-        margin-top: 0.3rem;
+        margin-top: 0.7rem;
     }
 
 

@@ -90,7 +90,7 @@
 
 .challengeActive footer button {
     height: 3rem;
-    width: 7rem;
+    width: rem;
 
     display: flex;
     align-items: center;
@@ -131,7 +131,7 @@
         
         line-height: 1.4;
     
-        max-width: 60%;
+        max-width: 80%;
         margin-top: 0.8rem;
     }
 
@@ -142,15 +142,18 @@
     }
 
     .challengeActive {
-        height: 108%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .challengeActive header {
         font-weight: 500;
         font-size: 1.2rem;
     
-        padding: 0 8rem 0.2rem;
-        border-bottom: 1px solid var(--gray-line);
+        
+        border-bottom: 0.8px solid var(--gray-line);
     }
 
     .challengeActive main img {
