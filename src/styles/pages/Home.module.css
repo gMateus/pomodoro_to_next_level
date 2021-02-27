@@ -12,7 +12,15 @@
     display: flex;
     justify-content: center;
 
-    height: 8rem;
+    height: 9rem;
+    
+}
+
+.container footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.8rem;
+    margin-bottom: 0;
 }
 
 

@@ -51,10 +51,12 @@ export default function Home(props: HomeProps) {
             </div>
           </section>
         </CountDownProvider>
+
+        <footer>
+          <a href="https://github.com/gMateus/pomodoro_to_next_level" > Meu Github!</a>
+        </footer>
       </div>
     </ChallengesProvider>
-
-
   )
 }
 
