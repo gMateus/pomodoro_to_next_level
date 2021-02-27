@@ -31,3 +31,23 @@
 .profileContainer div p img {
     margin-right: 0.5rem;
 }
+
+@media (max-width: 720px){
+    .profileContainer > img {
+        height: 3rem;
+        width: 3rem;
+    }
+
+    .profileContainer div {
+        margin-left: 1rem;
+    }
+
+    .profileContainer div strong {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .profileContainer div strong p {
+        font-size: 0.8rem;
+    }
+}

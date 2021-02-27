@@ -21,7 +21,7 @@ export function CountingDown() {
 
 
     return (
-        <div>
+        <div className={styles.agoraVai}>
             <div className={styles.countingDownContainer}>
                 <div>
                     <span>{minutesLeft}</span>

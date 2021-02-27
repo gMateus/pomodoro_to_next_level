@@ -9,11 +9,10 @@ export function Profile() {
             <img src="https://github.com/gMateus.png" alt="Mateus Guerreiro" />
 
             <div>
-                <strong> Mateus Guerreiro</strong>
-                <p>
-                    <img src="icons/level.svg" alt="level" />
-                    level {level}
-                </p>
+                <strong>
+                    Mateus Guerreiro
+                    <p>level {level}</p>
+                </strong>
             </div>
         </div>
     )

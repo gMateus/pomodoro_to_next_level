@@ -19,11 +19,6 @@
     margin-bottom: 15px;
 }
 
-.seilaMan {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-}
 
 .buttonsContainer {
     display: flex;
@@ -71,6 +66,26 @@
     .container section {
         display: flex;
         flex-direction: column;
+        gap: 0.5rem;
     }
+
+    .container section > div:last-child {
+        height: 17rem;
+    }
+
+    .container header {
+        height: 3rem;
+    }
+
+    .container header img {
+        height: 2.8rem;
+        margin-bottom: 13px;
+    }
+
+    .container footer {
+        margin-top: 0.3rem;
+    }
+
+
 }
 

@@ -17,3 +17,19 @@
 .completeChallengesContainer span:last-child {
     font-size: 1.5rem;
 }
+
+@media (max-width: 720px) {
+    .completeChallengesContainer {
+        font-weight: 400;
+        margin: 1.2rem 0 0.6rem;
+        padding-bottom: 0.7rem;
+    }
+
+    .completeChallengesContainer span:first-child {
+        font-size: 1rem;
+    }
+
+    .completeChallengesContainer span:last-child {
+        font-size: 1.23rem;
+    }
+}

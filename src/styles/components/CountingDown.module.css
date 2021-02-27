@@ -4,7 +4,7 @@
     color: var(--title);
     align-items: center;
     font-family: Rajdhani;
-    ;
+
 }
 
 .countingDownContainer > div {
@@ -19,6 +19,7 @@
     border-radius: 5px;
     font-size: 7.5rem;
     text-align: center;
+    
 }
 
 .countingDownContainer > div > span {
@@ -43,6 +44,7 @@
 }
 
 .countDownButton {
+
     height: 5rem;
     width: 100%;
 
@@ -56,6 +58,7 @@
     justify-content: center;
 
     background: var(--blue);
+
     color: var(--white);
 
     font-weight: 600;
@@ -85,4 +88,37 @@
     cursor: not-allowed;
     
     border-bottom: 1px solid var(--green);
+}
+
+@media (max-width: 720px) {
+    .countingDownContainer {
+        margin: 1rem 0 1rem;
+        width: 10rem;
+        height: 4rem;
+    }
+
+    .agoraVai {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .agoraVai button {
+        width: 100%;
+    }
+
+    .countingDownContainer div {
+        font-size: 2rem;
+        height: 100%;
+    }
+
+    .countDownButton {
+
+        height: 3rem;
+        width: 50%;
+        margin-top: 0.2rem;
+        margin-bottom: 0;
+
+    }
 }
