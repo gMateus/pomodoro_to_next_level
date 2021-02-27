@@ -4,6 +4,7 @@
     color: var(--title);
     align-items: center;
     font-family: Rajdhani;
+    ;
 }
 
 .countingDownContainer > div {
@@ -16,12 +17,13 @@
     background: var(--white);
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
-    font-size: 8.5rem;
+    font-size: 7.5rem;
     text-align: center;
 }
 
 .countingDownContainer > div > span {
     flex: 1;
+    width: 100%;
 }
 .pontos {
     color: var(--white);

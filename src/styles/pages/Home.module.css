@@ -9,11 +9,46 @@
 }
 
 .container header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.container header img {
+    height: 8rem;
+    margin-bottom: 15px;
+}
+
+.seilaMan {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background: var(--blue);
+    height: 2rem;
+    width: 6.8rem;
+    border-radius: 10px;
+}
+
+.buttonsContainer div {
     display: flex;
     justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 2rem;
+}
 
-    height: 9rem;
-    
+.buttonsContainer > div:first-child {
+    border-right: 1px solid #f8f1f3;
+}
+
+.buttonsContainer > div:last-child {
+    border-left: 1px solid #f8f1f3;
 }
 
 .container footer {
@@ -27,12 +62,15 @@
 .container section {
     display: grid;
     flex: 1;
-    grid-template-columns: 1fr 1fr;
-    gap: 6.25rem;
+    grid-template-columns: 1fr 1fr ;
+    gap: 3.25rem;
     align-content: center;
-    background: #082c6c;
-
-    border-radius: 10px;
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
-    padding: 1.5rem 2rem;
 }
+
+@media (max-width: 720px) {
+    .container section {
+        display: flex;
+        flex-direction: column;
+    }
+}
+

@@ -13,6 +13,8 @@ import { CountDownProvider } from "../contexts/CountDownContext";
 import { ChallengesProvider } from "../contexts/ChallengeContext";
 
 
+
+
 interface HomeProps {
   level: number;
   currentExperience: number;
@@ -20,6 +22,7 @@ interface HomeProps {
 }
 
 export default function Home(props: HomeProps) {
+
 
   return (
     <ChallengesProvider
@@ -34,7 +37,10 @@ export default function Home(props: HomeProps) {
         </Head>
 
         <header className={styles.logoContainer}>
-          <img className={styles.logo} src="icons/mylogo.svg" alt="" />
+          <div></div>
+          <img className={styles.logo} src="icons/Group_1_white.svg" alt="" />
+          <div></div>
+
         </header>
 
         <CountDownProvider>
