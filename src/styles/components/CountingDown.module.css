@@ -1,0 +1,86 @@
+.countingDownContainer {
+    display: flex;
+    font-weight: 600;
+    color: var(--title);
+    align-items: center;
+    font-family: Rajdhani;
+}
+
+.countingDownContainer > div {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    background: var(--white);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    font-size: 8.5rem;
+    text-align: center;
+}
+
+.countingDownContainer > div > span {
+    flex: 1;
+}
+.pontos {
+    color: var(--white);
+}
+
+.countingDownContainer > div span:first-child {
+    border-right: 1px solid #f8f1f3;
+}
+
+.countingDownContainer > div span:last-child {
+    border-left: 1px solid #f8f1f3;
+}
+
+.countingDownContainer > span {
+    margin: 0 0.5rem ;
+    font-size: 6.25rem;
+}
+
+.countDownButton {
+    height: 5rem;
+    width: 100%;
+
+    margin-top: 2rem;
+
+    border: 0;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--blue);
+    color: var(--white);
+
+    font-weight: 600;
+    font-size: 1.25rem;
+
+    transition: background-color 0.22s;
+
+}
+
+.countDownButton:not(:disable):hover {
+    background: var(--blue-dark);
+}
+
+.countDownButtonActive {
+    background: var(--white);
+    color: var(--title);
+}
+
+.countDownButtonActive:not(:disable):hover {
+    background: var(--red);
+    color: var(--white);
+}
+
+.countDownButton:disabled {
+    background: var(--white);
+    color: var(--text);
+    cursor: not-allowed;
+    
+    border-bottom: 1px solid var(--green);
+}
