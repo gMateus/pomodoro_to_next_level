@@ -51,9 +51,9 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
 
     const experienceToNextLevel = Math.pow((level + 1) * 5, 2)
 
-    useEffect(() => {
+    /*useEffect(() => {
         Notification.requestPermission();
-    }, [])
+    }, [])*/
 
     useEffect(() => {
         Cookies.set('level', String(level));
@@ -79,11 +79,11 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
         setActiveChallenge(challenge)
 
 
-        if (Notification.permission === 'granted') {
+        /*if (Notification.permission === 'granted') {
             new Notification('O tempo acabou.', {
                 body: `Complete o desafio para ganhar ${challenge.amount} xp`
             })
-        }
+        }*/
     }
 
     function resetChallenge() {
