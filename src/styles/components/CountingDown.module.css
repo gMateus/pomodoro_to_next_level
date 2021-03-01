@@ -27,7 +27,7 @@
     width: 100%;
 }
 .pontos {
-    color: var(--white);
+    color: var(--title );
 }
 
 .countingDownContainer > div span:first-child {
@@ -65,7 +65,12 @@
     font-size: 1.25rem;
 
     transition: background-color 0.22s;
+    transition: filter 0.2s;
 
+}
+
+.countDownButton:hover {
+    filter: brightness(0.9);
 }
 
 .countDownButton:not(:disable):hover {

@@ -11,6 +11,9 @@ import { Challengesbox } from "../components/Challengesbox";
 import { GetServerSideProps } from 'next'
 import { CountDownProvider } from "../contexts/CountDownContext";
 import { ChallengesProvider } from "../contexts/ChallengeContext";
+import { ChangeTheme } from "../components/changeTheme";
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 
 
@@ -23,43 +26,49 @@ interface HomeProps {
 
 export default function Home(props: HomeProps) {
 
+  const { backgroundTheme, logoTheme } = useContext(ThemeContext)
+
 
   return (
+
     <ChallengesProvider
       level={props.level}
       currentExperience={props.currentExperience}
       challengesCompleted={props.challengesCompleted}
 
     >
-      <div className={styles.container}>
-        <Head>
-          <title>Início | move.it</title>
-        </Head>
+      <div className={styles.container} style={{ background: backgroundTheme }}>
+        <div>
+          <Head>
+            <title>Início | move.it</title>
+          </Head>
 
-        <header className={styles.logoContainer}>
-          <div></div>
-          <img className={styles.logo} src="icons/Group_1_white.svg" alt="" />
-          <div></div>
+          <header className={styles.logoContainer}>
+            <div className={styles.vazio}></div>
 
-        </header>
+            <div><img className={styles.logo} src={logoTheme} alt="" /></div>
 
-        <CountDownProvider>
-          <section>
-            <div>
-              <ExperienceBar />
-              <Profile />
-              <CompleteChallenges />
-              <CountingDown />
-            </div>
+            <div className={styles.themeContainer}><ChangeTheme /></div>
+          </header>
 
-            <div>
-              <Challengesbox />
-            </div>
-          </section>
-          <footer>
-            <a href="https://github.com/gMateus/pomodoro_to_next_level" > Meu Github!</a>
-          </footer>
-        </CountDownProvider>
+          <CountDownProvider>
+            <section>
+              <div>
+                <ExperienceBar />
+                <Profile />
+                <CompleteChallenges />
+                <CountingDown />
+              </div>
+
+              <div>
+                <Challengesbox />
+              </div>
+            </section>
+            <footer>
+              <a href="https://github.com/gMateus/pomodoro_to_next_level" > Meu Github!</a>
+            </footer>
+          </CountDownProvider>
+        </div>
       </div>
     </ChallengesProvider>
   )

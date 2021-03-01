@@ -19,17 +19,20 @@
     position: relative;
 }
 
+
 .experienceBar > div > div {
     height: 4px;
     border-radius: 4px;
     background: var(--green);
-    
+    transition: 2s 0.1s;
+
 }
 
 span.currentExperience {
     position: absolute;
     top: 12px;
     transform: translateX(-50%);
+    transition: left 2s 0.1s;
 }
 
 @media(max-width: 720px) {

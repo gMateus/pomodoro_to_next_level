@@ -1,0 +1,56 @@
+.theme {
+    display: flex;
+    justify-content: flex-start;
+    width: 95%;
+    height: 70%;
+    border-radius: 5px;
+    padding: 2.7%;
+    background: var(--blue-dark);
+    transition: filter 0.2s;
+}
+
+
+.dayTheme {
+    width: 100%;
+    background: var(--blue);
+    border-radius: 5px;
+    margin: 0 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 0.2s;
+}
+
+.darkTheme {
+    width: 100%;
+    background: var(--blue);
+    border-radius: 5px;
+    margin: 0 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 0.2s;
+}
+
+.defaultTheme {
+    width: 100%;
+    background: var(--blue);
+    border-radius: 5px;
+    margin: 0 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 0.2s;
+}
+
+.defaultTheme:hover {
+    filter: brightness(0.9);
+}
+
+.dayTheme:hover {
+    filter: brightness(0.9);
+}
+
+.darkTheme:hover {
+    filter: brightness(0.9);
+}
