@@ -11,7 +11,7 @@ import { Challengesbox } from "../components/Challengesbox";
 import { GetServerSideProps } from 'next'
 import { CountDownProvider } from "../contexts/CountDownContext";
 import { ChallengesProvider } from "../contexts/ChallengeContext";
-import { ChangeTheme } from "../components/changeTheme";
+import { ChangeTheme } from "../components/ChangeTheme";
 import { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 
