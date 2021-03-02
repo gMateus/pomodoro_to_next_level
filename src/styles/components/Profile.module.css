@@ -5,23 +5,61 @@
     
 }
 
-.profileContainer > img {
-
+.profileContainer > div > img {
     height: 5.5rem;
     width: 5.5rem;
     border-radius: 50%;
 
 }
 
-.profileContainer div {
-    margin-left: 1.5rem;
+.photoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photoContainer div {
+    width: 1.8rem;
+    height: 1rem;
+    background: var(--blue);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+.nameAndLevel {
+    margin-left: 1rem;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .profileContainer div strong {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #666666;
+
 }
+
+.nameContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.buttonStyle {
+    width: 8rem;
+    font-size: 1rem;
+    margin-left: 14px;
+}
+
+.profileContainer div strong div {
+    margin-left: 0;
+}
+
 
 .profileContainer div p {
     font-size: 1rem;
@@ -38,9 +76,10 @@
         width: 3rem;
     }
 
-    .profileContainer div {
-        margin-left: 1rem;
+    .photoContainer div {
+        margin-top: 5px;
     }
+
 
     .profileContainer div strong {
         font-size: 1rem;
@@ -49,5 +88,11 @@
 
     .profileContainer div strong p {
         font-size: 0.8rem;
+    }
+
+    .buttonStyle {
+        width: 6rem;
+        font-size: 0.8rem;
+        margin-left: 14px;
     }
 }

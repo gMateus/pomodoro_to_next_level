@@ -10,6 +10,7 @@ interface ProfileContextData {
     confirmeThanUserAlreadySetName: () => void;
     isUserAlreadySetName: boolean;
     isGetNameModalOpen: boolean;
+    alterarNome: () => void;
 }
 
 interface ProfileProviderProps {
@@ -46,9 +47,12 @@ export function ProfileProvider({ children, ...rest }: ProfileProviderProps) {
         setIsUserAlreadySetName(true)
         setIsGetNameModalOpen(false)
         console.log('usuario ja escolheu o nome')
-        //closeNameModalOpen()
     }
 
+    function alterarNome() {
+        setIsUserAlreadySetName(false)
+        setIsGetNameModalOpen(true)
+    }
 
     useEffect(() => {
         Cookies.set('nomeProfile', String(nomeProfile))
@@ -73,6 +77,7 @@ export function ProfileProvider({ children, ...rest }: ProfileProviderProps) {
                 confirmeThanUserAlreadySetName,
                 isUserAlreadySetName,
                 isGetNameModalOpen,
+                alterarNome
             }}
         >
             {children}

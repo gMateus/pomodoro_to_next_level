@@ -12,10 +12,6 @@ export function ChangeTheme() {
     const { selecionandoThemeDefault, selecionandoDayTheme, selecionandoNightTheme } = useContext(ThemeContext)
 
 
-    function emBreve() {
-        alert('Em breve...')
-    }
-
     return (
         <div className={styles.container}>
             <div className={styles.theme}>
@@ -27,11 +23,10 @@ export function ChangeTheme() {
                 </div>
                 <div className={styles.darkTheme} onClick={selecionandoNightTheme}>
                     <BsMoon />
+
                 </div>
             </div>
-            <div className={styles.configureName} onClick={emBreve}>
-                <strong>Alterar Nome</strong>
-            </div>
+
         </div>
     )
 }
