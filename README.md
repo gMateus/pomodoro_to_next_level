@@ -3,7 +3,7 @@
 !!! ReadMe ainda está em construção
 
 
-!!! Quando você entar no site vai aparecer um campo para preencher com seu nome, mas o botão de alterar nome ainda está em construção. Para consegui alterar depois é só apagar os cookies do site.
+!!! Quando você entar no site vai aparecer um campo para preencher com seu nome, mas o botão de alterar nome depois ainda está em construção. Para consegui alterar depois é só apagar os cookies do site.
 
 ## Descrição do projeto
 <p aling="justify"> 
