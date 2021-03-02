@@ -1,6 +1,18 @@
-# Titulo
-ou
-<h1 aling="center> Titulo </h1>
+# Pomodoro to next level
+
+
+> Status do projeto: Em desenvolvimento :warning:
+
+# Deploy da Aplicação com NextJs: :dash:
+
+https://pomodoro-to-next-level.vercel.app/
+
+:heavy_exclamation_mark: ReadMe ainda está em construção
+
+
+:heavy_exclamation_mark: Quando você entar no site vai aparecer um campo para preencher com seu nome, mas o botão de alterar nome depois ainda está em construção.
+
+:heavy_exclamation_mark: detalhes da ultima atualização ----->> https://github.com/gMateus/pomodoro_to_next_level/blob/main/progresso%20de%20hoje.txt
 
 ## Descrição do projeto
 <p aling="justify"> 
@@ -24,11 +36,9 @@ E, através do desenvolvimento dessa plataforma, iniciar no mundo do desenvolvim
 :trophy:
 :trophy:
 
-> Status do projeto: Em desenvolvimento :warning:
-
-# Deploy da Aplicação com NextJs: :dash:
-
-https://pomodoro-to-next-level.vercel.app/
 
 
-## 
+
+## imagens
+
+<img src="https://github.com/gMateus/pomodoro_to_next_level/blob/main/imagens_da_aplicacao/localhost_3000_(Moto%20G4)%20(2).png" width="50%" height="50%" />
