@@ -22,7 +22,7 @@ export function CountDownProvider({ children }: CountDownProviderProps) {
 
     const { startNewChallenge } = useContext(ChallengesContext)
 
-    const totalMinutes = (25 * 60)
+    const totalMinutes = (20 * 60)
 
     const [time, setTime] = useState(totalMinutes)
 
