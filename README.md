@@ -1,5 +1,12 @@
 # Pomodoro to next level
 
+
+> Status do projeto: Em desenvolvimento :warning:
+
+# Deploy da Aplicação com NextJs: :dash:
+
+https://pomodoro-to-next-level.vercel.app/
+
 :heavy_exclamation_mark: ReadMe ainda está em construção
 
 
@@ -27,11 +34,7 @@ E, através do desenvolvimento dessa plataforma, iniciar no mundo do desenvolvim
 :trophy:
 :trophy:
 
-> Status do projeto: Em desenvolvimento :warning:
 
-# Deploy da Aplicação com NextJs: :dash:
-
-https://pomodoro-to-next-level.vercel.app/
 
 
 ## 
