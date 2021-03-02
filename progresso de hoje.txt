@@ -20,6 +20,6 @@ No fim acabei conseguindo, só que deixei um pouco bagunçado o código nessa te
 Amanhã terei que arrumar a bagunça que ficou.
 Além de terminar de adicionar a funcionalidade de alterar o nome.
 
-Outras atualizações pendentes são calibrar as cores nos outros tema além do tema default(tema esse que já veio de base);
+Outras atualizações pendentes são calibrar as cores nos outros tema, tirando o tema default(tema esse que já veio de base);
 arrumar o layout do container onde as pessoas mudam o tema e altera o nome; e adicionar a funcionalidade de mudar foto de
 perfil, para as pessoas poderem colocar suas fotos.
