@@ -21,7 +21,7 @@ export function NameModal() {
     //}
 
     function testando() {
-        const inputNameValor = document.getElementById('inputName').value
+        const inputNameValor = (document.getElementById('inputName') as HTMLInputElement).value
         console.log(inputNameValor)
         setNomeProfile(inputNameValor)
         confirmeThanUserAlreadySetName()
