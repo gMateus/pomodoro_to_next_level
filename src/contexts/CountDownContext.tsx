@@ -22,7 +22,11 @@ export function CountDownProvider({ children }: CountDownProviderProps) {
 
     const { startNewChallenge } = useContext(ChallengesContext)
 
+<<<<<<< HEAD
     const totalMinutes = (20 * 60)
+=======
+    const totalMinutes = (25 * 60)
+>>>>>>> parent of 43db042 (alterando_tempo-tentativa-2)
 
     const [time, setTime] = useState(totalMinutes)
 
