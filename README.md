@@ -39,4 +39,6 @@ E, através do desenvolvimento dessa plataforma, iniciar no mundo do desenvolvim
 
 
 
-## 
+## imagens
+
+<img src="https://github.com/gMateus/pomodoro_to_next_level/blob/main/imagens_da_aplicacao/localhost_3000_(Moto%20G4)%20(2).png" />
