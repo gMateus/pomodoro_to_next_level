@@ -1,9 +1,9 @@
 # Pomodoro to next level
 
-!!! ReadMe ainda está em construção
+:heavy_exclamation_mark: ReadMe ainda está em construção
 
 
-!!! Quando você entar no site vai aparecer um campo para preencher com seu nome, mas o botão de alterar nome depois ainda está em construção. Para consegui alterar depois é só apagar os cookies do site.
+:heavy_exclamation_mark: Quando você entar no site vai aparecer um campo para preencher com seu nome, mas o botão de alterar nome depois ainda está em construção. Para consegui alterar depois é só apagar os cookies do site.
 
 ## Descrição do projeto
 <p aling="justify"> 
