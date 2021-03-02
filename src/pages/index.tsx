@@ -14,6 +14,7 @@ import { ChallengesProvider } from "../contexts/ChallengeContext";
 import { ChangeTheme } from "../components/ChangeTheme";
 import { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
+import { ProfileProvider } from "../contexts/ProfileContext";
 
 
 
@@ -22,6 +23,9 @@ interface HomeProps {
   level: number;
   currentExperience: number;
   challengesCompleted: number;
+  nomeProfile: string;
+  isUserAlreadySetName: boolean;
+  isGetNameModalOpen: boolean;
 }
 
 export default function Home(props: HomeProps) {
@@ -52,21 +56,27 @@ export default function Home(props: HomeProps) {
           </header>
 
           <CountDownProvider>
-            <section>
-              <div>
-                <ExperienceBar />
-                <Profile />
-                <CompleteChallenges />
-                <CountingDown />
-              </div>
+            <ProfileProvider
+              isUserAlreadySetName={props.isUserAlreadySetName}
+              nomeProfile={props.nomeProfile}
+              isGetNameModalOpen={props.isGetNameModalOpen}
+            >
+              <section>
+                <div>
+                  <ExperienceBar />
+                  <Profile />
+                  <CompleteChallenges />
+                  <CountingDown />
+                </div>
 
-              <div>
-                <Challengesbox />
-              </div>
-            </section>
-            <footer>
-              <a href="https://github.com/gMateus/pomodoro_to_next_level" > Meu Github!</a>
-            </footer>
+                <div>
+                  <Challengesbox />
+                </div>
+              </section>
+              <footer>
+                <a href="https://github.com/gMateus/pomodoro_to_next_level" > Meu Github!</a>
+              </footer>
+            </ProfileProvider>
           </CountDownProvider>
         </div>
       </div>
@@ -77,13 +87,22 @@ export default function Home(props: HomeProps) {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
-  const { level, currentExperience, challengesCompleted } = ctx.req.cookies
+  const { level, currentExperience, challengesCompleted, nomeProfile, isUserAlreadySetName, isGetNameModalOpen } = ctx.req.cookies
 
+  console.log(nomeProfile)
+  console.log('userja colocou nome: ' + isUserAlreadySetName)
+  console.log('abrir modal:' + isGetNameModalOpen)
+  console.log(level)
+  console.log(currentExperience)
+  console.log(challengesCompleted)
   return {
     props: {
       level: Number(level ?? 1),
       currentExperience: Number(currentExperience ?? 0),
-      challengesCompleted: Number(challengesCompleted ?? 0)
+      challengesCompleted: Number(challengesCompleted ?? 0),
+      nomeProfile: String(nomeProfile ?? 'Mateus Guerreiro'),
+      isUserAlreadySetName: Boolean(isUserAlreadySetName ?? false),
+      isGetNameModalOpen: Boolean(isGetNameModalOpen ?? true)
     }
   }
 }

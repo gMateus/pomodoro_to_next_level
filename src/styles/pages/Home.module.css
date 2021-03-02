@@ -11,13 +11,13 @@
 
 .container > div {
     max-width: 990px;
-    height: 100%;
+    height: 100vh;
 }
 
 .container header {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    
+
 }
 
 .themeContainer {

@@ -12,16 +12,25 @@ export function ChangeTheme() {
     const { selecionandoThemeDefault, selecionandoDayTheme, selecionandoNightTheme } = useContext(ThemeContext)
 
 
-    return (
-        <div className={styles.theme}>
-            <div className={styles.defaultTheme} onClick={selecionandoThemeDefault}>
-                <FaSun />
-            </div>
-            <div className={styles.dayTheme} onClick={selecionandoDayTheme}>
+    function emBreve() {
+        alert('Em breve...')
+    }
 
+    return (
+        <div className={styles.container}>
+            <div className={styles.theme}>
+                <div className={styles.defaultTheme} onClick={selecionandoThemeDefault}>
+                    <FaSun />
+                </div>
+                <div className={styles.dayTheme} onClick={selecionandoDayTheme}>
+
+                </div>
+                <div className={styles.darkTheme} onClick={selecionandoNightTheme}>
+                    <BsMoon />
+                </div>
             </div>
-            <div className={styles.darkTheme} onClick={selecionandoNightTheme}>
-                <BsMoon />
+            <div className={styles.configureName} onClick={emBreve}>
+                <strong>Alterar Nome</strong>
             </div>
         </div>
     )
