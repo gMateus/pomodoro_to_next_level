@@ -10,8 +10,6 @@ https://pomodoro-to-next-level.vercel.app/
 :heavy_exclamation_mark: ReadMe ainda está em construção
 
 
-:heavy_exclamation_mark: Quando você entar no site vai aparecer um campo para preencher com seu nome, mas o botão de alterar nome depois ainda está em construção.
-
 :heavy_exclamation_mark: detalhes da ultima atualização ----->> https://github.com/gMateus/pomodoro_to_next_level/blob/main/progresso%20de%20hoje.txt
 
 
