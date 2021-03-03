@@ -50,7 +50,7 @@ export default function Home(props: HomeProps) {
           <header className={styles.logoContainer}>
             <div className={styles.vazio}></div>
 
-            <div><img className={styles.logo} src={logoTheme} alt="" /></div>
+            <div><img className={styles.logo} src={logoTheme} alt="" style={{ margin: 0 }} /></div>
 
             <div className={styles.themeContainer}><ChangeTheme /></div>
           </header>

@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useState } from "react"
+import { ConfigModal } from "../components/ConfigModal"
 
 interface ThemeContextProps {
     children: ReactNode;
@@ -19,7 +20,7 @@ interface ThemeContextData {
 
 export const ThemeContext = createContext({} as ThemeContextData)
 
-export function ThemeProvider({ children }: ThemeContextProps) {
+export function ThemeProvider({ children, ...rest }: ThemeContextProps) {
 
 
     const [currentTheme, setCurrentTheme] = useState('default')

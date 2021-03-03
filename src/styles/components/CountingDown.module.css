@@ -124,6 +124,11 @@
         width: 50%;
         margin-top: 0.2rem;
         margin-bottom: 0;
+        transition: filter 0.2s;
 
+    }
+    
+    .countDownButton:hover {
+        filter: brightness(0.7);
     }
 }

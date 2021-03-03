@@ -6,27 +6,26 @@ import { FaSun } from 'react-icons/fa'
 
 import { BsMoon } from 'react-icons/bs'
 
+import { ConfigModal } from "../components/ConfigModal"
 
 export function ChangeTheme() {
 
-    const { selecionandoThemeDefault, selecionandoDayTheme, selecionandoNightTheme } = useContext(ThemeContext)
+    const [isConfigOpen, setIsConfigOpen] = useState(false)
 
+    function mudarTema() {
+        if (isConfigOpen === false) {
+            setIsConfigOpen(true)
+        } else {
+            setIsConfigOpen(false)
+        }
+    }
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} onClick={mudarTema}>
             <div className={styles.theme}>
-                <div className={styles.defaultTheme} onClick={selecionandoThemeDefault}>
-                    <FaSun />
-                </div>
-                <div className={styles.dayTheme} onClick={selecionandoDayTheme}>
-
-                </div>
-                <div className={styles.darkTheme} onClick={selecionandoNightTheme}>
-                    <BsMoon />
-
-                </div>
+                <img src="icons/Frame_1_(1).svg" style={{ height: '20px', margin: '0' }} alt="" />
             </div>
-
+            {isConfigOpen && <ConfigModal />}
         </div>
     )
 }
