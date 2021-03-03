@@ -14,6 +14,13 @@ https://pomodoro-to-next-level.vercel.app/
 
 :heavy_exclamation_mark: detalhes da ultima atualização ----->> https://github.com/gMateus/pomodoro_to_next_level/blob/main/progresso%20de%20hoje.txt
 
+
+### Tabela de Conteúdos
+   * [Descrição do projeto](#descricao-do-projeto)
+   * [Principais funcionalidades da plataforma](#principais-funcionalidades-da-plataforma)
+   * [Imagens](#imagens)
+   * [Dependências utilizadas](#dependencias-utilizadas)
+
 ## Descrição do projeto
 <p aling="justify"> 
 Desenvolver uma plataforma que auxilia as pessoas a colocarem em pratica a técnica de pomodoro. 
@@ -42,3 +49,13 @@ E, através do desenvolvimento dessa plataforma, iniciar no mundo do desenvolvim
 ## imagens
 
 <img src="https://github.com/gMateus/pomodoro_to_next_level/blob/main/imagens_da_aplicacao/localhost_3000_(Moto%20G4)%20(2).png" width="50%" height="50%" />
+
+
+# Dependências utilizadas :books:
+
+- [ Js-Cookie   ] (https://github.com/js-cookie/js-cookie)        : versão 2.2.1
+- [ NextJs      ] (https://nextjs.org/)                           : versão 10.0.7
+- [ React       ] (https://reactjs.org/)                          : versão 17.0.1
+- [ React-Dom   ] (https://pt-br.reactjs.org/docs/react-dom.html) : versão 17.0.1
+- [ React-Icons ] (https://react-icons.github.io/react-icons)     : versão 4.2.0
+
