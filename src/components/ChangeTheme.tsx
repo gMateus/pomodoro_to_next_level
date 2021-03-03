@@ -1,31 +1,30 @@
-import { useContext, useState } from 'react'
-import { ThemeContext } from '../contexts/ThemeContext'
+import { useContext, useEffect, useState } from 'react'
 import styles from '../styles/components/ChangeTheme.module.css'
-
-import { FaSun } from 'react-icons/fa'
-
-import { BsMoon } from 'react-icons/bs'
-
 import { ConfigModal } from "../components/ConfigModal"
+import { ThemeContext } from '../contexts/ThemeContext'
+
+//import { FaSun } from 'react-icons/fa'
+//import { BsMoon } from 'react-icons/bs'
 
 export function ChangeTheme() {
 
-    const [isConfigOpen, setIsConfigOpen] = useState(false)
+    const { isConfigureOpen, configureModal } = useContext(ThemeContext)
 
-    function mudarTema() {
-        if (isConfigOpen === false) {
-            setIsConfigOpen(true)
+    function openChangeThemeMenu() {
+
+        if (isConfigureOpen === false) {
+            configureModal()
         } else {
-            setIsConfigOpen(false)
+            configureModal()
         }
-    }
+    };
 
     return (
-        <div className={styles.container} onClick={mudarTema}>
+        <div className={styles.container} onClick={openChangeThemeMenu}>
             <div className={styles.theme}>
-                <img src="icons/Frame_1_(1).svg" style={{ height: '20px', margin: '0' }} alt="" />
+                <img src="icons/Frame_1_(1).svg" style={{ height: '17px', margin: '0' }} alt="" />
             </div>
-            {isConfigOpen && <ConfigModal />}
+            {isConfigureOpen && <ConfigModal />}
         </div>
     )
-}
+};

@@ -1,12 +1,11 @@
-import { useContext } from 'react'
-import { ChallengesContext } from '../contexts/ChallengeContext'
-import { ThemeContext } from '../contexts/ThemeContext'
-import styles from '../styles/components/CompleteChallenges.module.css'
+import { useContext } from 'react';
+import { ChallengesContext } from '../contexts/ChallengeContext';
+import { ThemeContext } from '../contexts/ThemeContext';
+import styles from '../styles/components/CompleteChallenges.module.css';
 
 export function CompleteChallenges() {
 
     const { challengesCompleted } = useContext(ChallengesContext)
-
     const { colorTextCompleteChallenge } = useContext(ThemeContext)
 
     return (
@@ -15,4 +14,4 @@ export function CompleteChallenges() {
             <span>{challengesCompleted}</span>
         </div>
     )
-}
+};

@@ -1,16 +1,17 @@
 .configOpen {
-    margin-top: 32px;
-    margin-right: 10px;
     width: 12rem;
+
     background: var(--blue);
     position: absolute;
     border-radius: 15px;
+
+    margin-top: 2rem;
 
     display: flex;
     flex-direction: column;
 
     align-items: center;
-    transition: 2s 0.8s;
+    transition: height 0.4s;
 }
 
 .configOpen strong {

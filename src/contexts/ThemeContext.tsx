@@ -1,5 +1,4 @@
 import { createContext, ReactNode, useState } from "react"
-import { ConfigModal } from "../components/ConfigModal"
 
 interface ThemeContextProps {
     children: ReactNode;
@@ -15,8 +14,14 @@ interface ThemeContextData {
     colorTextExperienceBar: string;
     colorTextCompleteChallenge: string;
     logoTheme: string;
+    escolhendoTemaAtual: (temaEscolhido) => void;
+    configureModal: () => void;
+    isConfigureOpen: boolean;
 }
 
+interface temaEscolhido {
+    temaEscolhido: number;
+}
 
 export const ThemeContext = createContext({} as ThemeContextData)
 
@@ -36,7 +41,29 @@ export function ThemeProvider({ children, ...rest }: ThemeContextProps) {
 
     const [logoTheme, setThemeLogo] = useState('icons/Group_1_black.svg')
 
+    const [isConfigureOpen, setIsConfigureOpen] = useState(true)
 
+
+
+    function configureModal() {
+        //alert('testee')
+        if (isConfigureOpen == true) {
+            setIsConfigureOpen(false)
+        } else {
+            setIsConfigureOpen(true)
+        }
+    }
+
+
+    function escolhendoTemaAtual(temaEscolhido) {
+        if (temaEscolhido == 0) {
+            selecionandoThemeDefault();
+        } else if (temaEscolhido == 1) {
+            selecionandoDayTheme();
+        } else if (temaEscolhido == 2) {
+            selecionandoNightTheme()
+        }
+    }
 
     function selecionandoThemeDefault() {
         setBackGroundTheme('var(--background)')
@@ -48,7 +75,7 @@ export function ThemeProvider({ children, ...rest }: ThemeContextProps) {
     }
 
     function selecionandoDayTheme() {
-        setBackGroundTheme('#00BFFF')
+        setBackGroundTheme('#01A9DB')
         setColorNameProfile('var(--white)')
         setColorTextExperienceBar('var(--white)')
         setcolorTextCompleteChallenge('var(--white)')
@@ -75,7 +102,10 @@ export function ThemeProvider({ children, ...rest }: ThemeContextProps) {
                 colorNameProfile,
                 colorTextExperienceBar,
                 colorTextCompleteChallenge,
-                logoTheme
+                logoTheme,
+                escolhendoTemaAtual,
+                configureModal,
+                isConfigureOpen
             }}>
             {children}
         </ThemeContext.Provider>

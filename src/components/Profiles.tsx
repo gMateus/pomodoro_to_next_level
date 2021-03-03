@@ -27,8 +27,12 @@ export function Profile() {
     return (
         <div className={styles.profileContainer}>
             <div className={styles.photoContainer}>
-                <img src="https://github.com/gMateus.png" alt="Mateus Guerreiro" />
-                <div onClick={emBreve}> <FaCamera /> </div>
+                <div className={styles.headIconPhoto}></div>
+                <div className={styles.bodyIconPhoto}></div>
+                <div onClick={emBreve}>
+                    <FaCamera />
+                </div>
+
             </div>
 
             <div className={styles.nameAndLevel}>
@@ -36,7 +40,7 @@ export function Profile() {
                     {nomeProfile}
                     <button className={styles.buttonStyle} onClick={mudarNome}>Alterar nome</button>
                 </strong>
-                <p style={{ color: colorNameProfile, fontWeight: 'bold' }}>level {level}</p>
+                <p style={{ color: colorNameProfile }}>Level {level}</p>
             </div>
         </div >
     )

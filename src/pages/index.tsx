@@ -14,7 +14,7 @@ import { ChallengesProvider } from "../contexts/ChallengeContext";
 import { ChangeTheme } from "../components/ChangeTheme";
 import { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
-import { ProfileProvider } from "../contexts/ProfileContext";
+import { ProfileContext, ProfileProvider } from "../contexts/ProfileContext";
 
 
 
@@ -30,7 +30,8 @@ interface HomeProps {
 
 export default function Home(props: HomeProps) {
 
-  const { backgroundTheme, logoTheme } = useContext(ThemeContext)
+  const { backgroundTheme, logoTheme, colorNameProfile } = useContext(ThemeContext)
+
 
 
   return (
@@ -50,7 +51,7 @@ export default function Home(props: HomeProps) {
           <header className={styles.logoContainer}>
             <div className={styles.vazio}></div>
 
-            <div><img className={styles.logo} src={logoTheme} alt="" style={{ margin: 0 }} /></div>
+            <div className={styles.titleHeader} style={{ color: colorNameProfile }}>Pomodoro to next level</div>
 
             <div className={styles.themeContainer}><ChangeTheme /></div>
           </header>

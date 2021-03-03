@@ -102,14 +102,14 @@
         height: 4rem;
     }
 
-    .agoraVai {
+    .container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
 
-    .agoraVai button {
+    .container button {
         width: 100%;
     }
 

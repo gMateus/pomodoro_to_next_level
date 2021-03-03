@@ -1,58 +1,20 @@
 .container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 7rem;
-    height: 7rem;
-    margin-right: 30px;
-    padding: 2.7%;
+    justify-content: flex-end;
+    width: 3rem;
+    height: 3rem;
     transition: filter 0.2s;
-    
+    position: relative;
 }
 
 .theme {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 1.8rem;
     height: 1.8rem;
     background: var(--blue);
     border-radius: 50%;
-}
-
-.dayTheme {
-    width: 1.8rem;
-    height: 1.8rem;
-    margin-bottom: 0;
-    background: var(--blue);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: filter 0.2s;
-}
-
-.darkTheme {
-    width: 100%;
-    background: var(--blue);
-    border-radius: 5px;
-    margin: 0 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: filter 0.2s;
-}
-
-.defaultTheme {
-    width: 100%;
-    background: var(--blue);
-    border-radius: 5px;
-    margin: 0 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: filter 0.2s;
 }
 
 .defaultTheme:hover {
@@ -68,7 +30,9 @@
 }
 
 @media (max-width:720px) {
-    .container {
-        margin-bottom: 30px;
+    .theme {
+        height: 1.4rem;
+        width: 1.4rem;
     }
+
 }

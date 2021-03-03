@@ -1,9 +1,6 @@
-import { useContext } from 'react'
+import { useContext } from 'react';
 import { CountDownContext } from '../contexts/CountDownContext';
-
-import styles from '../styles/components/CountingDown.module.css'
-
-
+import styles from '../styles/components/CountingDown.module.css';
 
 export function CountingDown() {
 
@@ -19,9 +16,8 @@ export function CountingDown() {
     const [minutesLeft, minutesRight] = String(minutes).padStart(2, '0').split('')
     const [secondsLeft, secondsRight] = String(seconds).padStart(2, '0').split('')
 
-
     return (
-        <div className={styles.agoraVai}>
+        <div className={styles.container}>
             <div className={styles.countingDownContainer}>
                 <div>
                     <span>{minutesLeft}</span>
