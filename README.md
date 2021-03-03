@@ -10,7 +10,7 @@ https://pomodoro-to-next-level.vercel.app/
 :heavy_exclamation_mark: ReadMe ainda está em construção
 
 
-:heavy_exclamation_mark: detalhes da ultima atualização ----->> https://github.com/gMateus/pomodoro_to_next_level/blob/main/progresso%20de%20hoje_2.txt
+:heavy_exclamation_mark: detalhes da ultima atualização ----->> hhttps://github.com/gMateus/pomodoro_to_next_level/blob/main/progresso_de_hoje_2.txt
 
 
 ### Tabela de Conteúdos
