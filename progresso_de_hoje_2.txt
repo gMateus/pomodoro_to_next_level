@@ -1,0 +1,23 @@
+## Segundo relatório
+
+O principal objetivo de hoje era conseguir adicionar a funcionalidade de mudar foto do perfi para as pessoas poderem colocar
+suas fotos.
+Só que não consegui. Não sei se eu esqueci algum detalhe,provavélmente sim, mas fazer o input de imagens e mostrar na tela
+usando TypeScript com React é um pouco complicado(quando você resolve um problema aparece outro).
+Mas consegui fazer duas coisas hoje.
+Uma delas foi adicionar a opção de mudar nome depois que a pessoa já acessou a aplicação pela primeira vez.
+A outra foi alterar a forma como as pessoas mudam o tema da aplicação. Antes ficava uma div no canto superior direito
+com as três opções que tinha já visível. Eu transformei isso em uma espécie de botão de configuração em que a pessoa pode clicar para mostrar 
+todas as opções que ela tem. Isso me dá mais liberdade caso queria adicionar mais temas.
+
+Pelos próximos dias, eu acho que não adicionarei novas funcionalidades. O principal objetivos dos próximos dias é ajeitar a aparência da
+aplicação. Além de adicionar novas animações e arrumar as quais já tem.
+Eu quero adicionar uma animação na janelinha de opções de tema para, quando as pessoas clicarem em configurações, a janela não aparecer do 
+nada.
+Quero também arrumar, pelos próximos dias, o tamanho dos elementos na página e o tamanho de seus conteúdos, reposicionar a "logo"e o botão de 
+configuração, além de adicionar novos temas para as pessoas escolherem.
+
+Fiquei devendo de ajeitar umas partes do código de ontem e de hoje.
+
+Uma coisa que não consegui fazer hoje também foi adicionar outra branch para gerar uma copia da aplicação para testes. Mas acho que consiguirei
+fazer isso amanhã mesmo.
