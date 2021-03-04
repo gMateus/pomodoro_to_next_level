@@ -1,0 +1,34 @@
+## Terceiro relatório
+
+Antes de entrar no relatório de hoje, eu preciso avisar que as alterações na branch principal não vai mas ser diáriamente.
+Mas o repositório ainda vai continuar recebendo atualizações diárias, só que na branch secundária. Isso é para evitar 
+ficar dando commits diárias na branch principal.
+Quando eu achar que o projeto já teve uma alteração bacana,que vale a pena subir pra branch principal, eu faço o commit.
+As alterações e adições de novas funcionalidades vão acontecer primeiro na branch secundária.
+Isso é para os testes não acontecerem na branch principal.
+
+Dito isso, eu hoje adicionei uma animação na barrinha de opções de escolher tema. E ajeitei um pouco uma parte do código,
+principalmente no css. E também tirei minha foto do perfil da aplicação.
+Eu ainda não adicionei a funcionalidade para as pessoas colocarem suas fotos ali e estou cogitando, invés disso, colocar
+uma opção para as pessoas escolherem uns ícones pré definidos. Isso é mais simples do que dá input com uma imagem.
+
+No layout, acabou que não mexi em muitas coisas, eu tirei a imagem que tinha no lugar do título da página e deixei um
+texto mesmo. No lugar onde antes ficava minha imagem, eu montei um ícone temporário.
+E hoje fiquei devendo de terminar adicionar o tema azul escuro nas opções,ele já está la como opção para escolher só que
+ainda não existe na aplicação.
+
+Uma coisa que vou ajeitar amanhã é a animação que ficou na janelinha de opções. Na verdade acho que a janelinha toda
+apesar de está "dando pro gasto" não ficou muito legal, tanto a aparencia, como a animação em sí; E também o ícone para 
+que representa a opção de configuração.
+
+Ontem eu acho que eu falei algo sobre não estar conseguindo fazer uma branch secundária, algo assim. O problema
+foi que eu estava fazendo os passos tudo corretamente até a parte do pull request. Quando chegou na parte do pull request
+eu cliquei pra fazer um merge com a branch principal.
+O que fez com que depois eu não conseguisse mais fazer commit na branch principal. Ainda não entendi o porque. Mas hoje já 
+resolvi isso e a branch secundária está aí e o commit na branch principal está funcionando. A solução foi basicamente 
+repetir os passos até chegar na parte do pull request e não fazer o merge.
+Eu desconfio que tem como fazer commits depois de fazer o merge, só não sei como.
+
+Enfim... Eu já ia esquecendo de novo...
+Eu não estou fazendo as alterações só na aplicação para desktop web, estou fazendo tanto na aplicação web como na
+aplicação web para mobile. Recomendo darem uma olhada na aplicação pelo navegador mobile.
