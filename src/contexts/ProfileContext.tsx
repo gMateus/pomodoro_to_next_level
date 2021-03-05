@@ -6,11 +6,11 @@ import { NameModal } from "../components/NameModal"
 interface ProfileContextData {
     nomeProfile: string;
     styliengInput: object;
-    setNomeProfile: (nome) => void;
     confirmeThanUserAlreadySetName: () => void;
     isUserAlreadySetName: boolean;
     isGetNameModalOpen: boolean;
     alterarNome: () => void;
+    alterandoNome: (nome) => void;
 }
 
 interface ProfileProviderProps {
@@ -43,6 +43,14 @@ export function ProfileProvider({ children, ...rest }: ProfileProviderProps) {
 
 
 
+    function alterandoNome(nome) {
+        if (nome.length > 0 && nome.length <= 18) {
+            setNomeProfile(nome)
+        } else {
+            alert('Tem alguma coisa errada com o seu nome.')
+        }
+    }
+
     function confirmeThanUserAlreadySetName() {
         setIsUserAlreadySetName(true)
         setIsGetNameModalOpen(false)
@@ -73,11 +81,11 @@ export function ProfileProvider({ children, ...rest }: ProfileProviderProps) {
             value={{
                 nomeProfile,
                 styliengInput,
-                setNomeProfile,
                 confirmeThanUserAlreadySetName,
                 isUserAlreadySetName,
                 isGetNameModalOpen,
-                alterarNome
+                alterarNome,
+                alterandoNome
             }}
         >
             {children}

@@ -20,16 +20,13 @@ export function Profile() {
         alterarNome()
     }
 
-    function emBreve() {
-        alert('Em breve...')
-    }
 
     return (
         <div className={styles.profileContainer}>
             <div className={styles.photoContainer}>
                 <div className={styles.headIconPhoto}></div>
                 <div className={styles.bodyIconPhoto}></div>
-                <div onClick={emBreve}>
+                <div onClick={event => alert('Em breve...')}>
                     <FaCamera />
                 </div>
 

@@ -1,0 +1,16 @@
+## Quarto relatório
+
+Finalmente terminei de adicionar o tema que estava faltando nas opções.
+Eu Ajeitei também umas partes do código. Tinha uma parte do código que estava responsável pelo tema da aplicação
+e estava responsável por exibir o menu de opções da configuração, já separei os dois.
+Agora falta ajeitar as cores dos temas da aplicação
+Também troquei o ícone de configuração. Está bem melhor. O ícone atual eu fiz lá no site do figman;
+eu cuidei dos mínimos detalhes para ficar bacana.
+
+Uma coisa que não consegui fazer hoje foi salvar o tema atual que a pessoa escolheu lá no backend do
+nextjs. Por que o back-end está no index enquanto o elemento responsável pelo tema atual está
+lá no _apps. Não faço ideia como vou resolver isso.
+
+Falta eu resolver também uma outra coisa. A janelinha que mostra as opções de escolher tema está
+por baixo da barrinha de experiência. Não dá para vê pela web desktop porque os dois estão um pouco
+longe, mas na web mobile isso fica visível.

@@ -1,0 +1,35 @@
+## Quinto relatório
+
+Antes de começar queria avisar que ontem eu não fiz um commit então o relátorio anterior e esse foram pro repositório no mesmo dia.
+Só curiosidade mesmo.
+E também acho que não farei commit no repositório todos os dias, nem no de testes. Acho que isso não faz sentido, é inviável.
+Mas ainda queria relatar os progressos diariamente.
+Por isso eu acho que estou fazendo isso no lugar errado. E mesmo se tiver no lugar certo eu acho que estou fazendo do jeito errado.
+O principal objetivo desse relatório de progresso é documentar o projeto. E acho que não estou fazendo isso da forma correta.
+Principalmente porque estou relatando o que eu resolvi no dia e não estou descrevendo como eu fiz isso.
+Por isso eu criei uma pasta para ficar os relatórios, vou ficar colocando o relatório nessa pastinha por enquanto, até eu resolver
+como eu vou documentar o projeto.
+
+
+Finalmente consegui resolver um problema que estava tendo.
+Eu conseguia mostrar algumas informações que o usuário já tinha preenchido quando a aplicação era reaberta , como o nome dele por
+exemplo, mas o tema voltava pro padrão.
+Não ficava o qual ele escolheu antes de sair da aplicação.
+
+Eu não estava conseguindo salvar o tema que o usuário escolheu por que o componente responsável pelo tema que o usuário escolheu
+estava no _app e o servidor next que armazena dados do front-end fica no index. 
+Quando eu movia o componente pro index o tema que o usuário escolheu ficava salvo sim, mas só que tinha um problema. Que era que
+tudo ficava com a cor do tema que o usuário escolheu só que background do body não mudava de cor, porque o background do body fica
+no index.
+Então quando o elemento responsável pelo tema estava no _apps eu não conseguia salvar o tema atual no servidor porque o servidor
+next estava no index e quando eu colocava o elemento no index o tema ficava salvo no servidor só que o background do body não mudava de cor
+porque só dá para usar as funcionalidades do elemento dentro dele mesmo; e para a funcionalidade de mudar o tema ficar dentro dele
+eu tinha que colocar o elemento no _app.
+
+Depois de tanto quebrar cabeça eu descobri que a solução era até que simples.
+Já que para salvar o tema eu teria que colocar o elemento no index e eu só conseguia usar as funcionalidades do elemento para mudar 
+a cor do body com dentro dele mesmo.
+Então era só criar mais um elemento e colocar o body dentro dele e depois colocar esse elemento dentro do elemento responsável pelo tema.
+Assim eu conseguiria manter a o elemento responsável pelo tema no index ao mesmo tempo em que conseguiria usar as funcionalidades dele
+para alterar o body.
+Não tenho certeza que esse é a maneira correta, mas foi como eu resolvi esse problema.

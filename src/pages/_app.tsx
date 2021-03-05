@@ -1,12 +1,11 @@
-import { ThemeProvider } from '../contexts/ThemeContext';
+//import { ConfigModalProvider } from '../contexts/ConfigModal';
 import '../styles/global.css';
+import React from 'react';
 
 function MyApp({ Component, pageProps }) {
-  return (
 
-    <ThemeProvider>
-      <Component {...pageProps} />
-    </ThemeProvider>
+  return (
+    <Component {...pageProps} />
   )
 }
 

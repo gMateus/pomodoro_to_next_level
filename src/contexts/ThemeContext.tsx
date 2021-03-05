@@ -1,67 +1,62 @@
-import { createContext, ReactNode, useState } from "react"
+import Cookies from "js-cookie"
+import { createContext, ReactNode, useEffect, useState } from "react"
 
 interface ThemeContextProps {
     children: ReactNode;
+    currentTheme: string;
 }
 
 interface ThemeContextData {
     currentTheme: string;
-    selecionandoThemeDefault: () => void;
-    selecionandoDayTheme: () => void;
-    selecionandoNightTheme: () => void;
     backgroundTheme: string;
     colorNameProfile: string;
     colorTextExperienceBar: string;
     colorTextCompleteChallenge: string;
-    logoTheme: string;
+    logoColorTheme: string;
     escolhendoTemaAtual: (temaEscolhido) => void;
-    configureModal: () => void;
-    isConfigureOpen: boolean;
-}
-
-interface temaEscolhido {
-    temaEscolhido: number;
+    backgroundChallengeBox: string;
+    challengeNotActiveTextColor: string;
 }
 
 export const ThemeContext = createContext({} as ThemeContextData)
 
 export function ThemeProvider({ children, ...rest }: ThemeContextProps) {
 
-
-    const [currentTheme, setCurrentTheme] = useState('default')
-
-
+    const [currentTheme, setCurrentTheme] = useState(rest.currentTheme)
     const [backgroundTheme, setBackGroundTheme] = useState('var(--background)')
-
-    const [colorNameProfile, setColorNameProfile] = useState('#666666')
-
+    const [colorNameProfile, setColorNameProfile] = useState('var(--title)')
     const [colorTextExperienceBar, setColorTextExperienceBar] = useState('var(--title)')
-
     const [colorTextCompleteChallenge, setcolorTextCompleteChallenge] = useState('var(--title)')
-
-    const [logoTheme, setThemeLogo] = useState('icons/Group_1_black.svg')
-
-    const [isConfigureOpen, setIsConfigureOpen] = useState(true)
-
+    const [logoColorTheme, setColorThemeLogo] = useState('icons/Group_1_black.svg')
+    const [backgroundChallengeBox, setBackgrouncChallengeBox] = useState('var(--white)')
+    const [challengeNotActiveTextColor, setChallengeNotActiveTextColor] = useState('#666666')
 
 
-    function configureModal() {
-        //alert('testee')
-        if (isConfigureOpen == true) {
-            setIsConfigureOpen(false)
-        } else {
-            setIsConfigureOpen(true)
+
+    useEffect(() => {
+        if (currentTheme == 'defaultTheme') {
+            selecionandoThemeDefault();
+        } else if (currentTheme == 'darkDefaultTheme') {
+            selecionandoNightTheme()
+        } else if (currentTheme == 'blueTheme') {
+            selecionandoDayTheme();
+        } else if (currentTheme == 'darkBlueTheme') {
+            selecionandoDarkBlueTheme()
         }
-    }
+
+        Cookies.set('currentTheme', String(currentTheme))
+    }, [currentTheme])
 
 
     function escolhendoTemaAtual(temaEscolhido) {
-        if (temaEscolhido == 0) {
-            selecionandoThemeDefault();
-        } else if (temaEscolhido == 1) {
-            selecionandoDayTheme();
-        } else if (temaEscolhido == 2) {
-            selecionandoNightTheme()
+        if (temaEscolhido == 'defaultTheme') {
+            setCurrentTheme('defaultTheme')
+        } else if (temaEscolhido == 'darkDefaultTheme') {
+            setCurrentTheme('darkDefaultTheme')
+        } else if (temaEscolhido == 'blueTheme') {
+            setCurrentTheme('blueTheme')
+        } else if (temaEscolhido == 'darkBlueTheme') {
+            setCurrentTheme('darkBlueTheme')
         }
     }
 
@@ -70,16 +65,20 @@ export function ThemeProvider({ children, ...rest }: ThemeContextProps) {
         setColorNameProfile('var(--title)')
         setColorTextExperienceBar('var(--title)')
         setcolorTextCompleteChallenge('var(--title)')
-        setThemeLogo('icons/Group_1_black.svg')
+        setColorThemeLogo('icons/Group_1_black.svg')
+        setBackgrouncChallengeBox('var(--white)')
+        setChallengeNotActiveTextColor('var(--title)')
 
     }
 
     function selecionandoDayTheme() {
-        setBackGroundTheme('#01A9DB')
-        setColorNameProfile('var(--white)')
-        setColorTextExperienceBar('var(--white)')
-        setcolorTextCompleteChallenge('var(--white)')
-        setThemeLogo('icons/Group_1_white.svg')
+        setBackGroundTheme('#81DAF5')
+        setColorNameProfile('var(--title)')
+        setColorTextExperienceBar('var(--title)')
+        setcolorTextCompleteChallenge('var(--title)')
+        setColorThemeLogo('icons/Group_1_white.svg')
+        setBackgrouncChallengeBox('#00BFFF')
+        setChallengeNotActiveTextColor('var(--title)')
     }
 
     function selecionandoNightTheme() {
@@ -87,7 +86,19 @@ export function ThemeProvider({ children, ...rest }: ThemeContextProps) {
         setColorNameProfile('#DCDDE0')
         setColorTextExperienceBar('#DCDDE0')
         setcolorTextCompleteChallenge('#DCDDE0')
-        setThemeLogo('icons/Group_1_white.svg')
+        setColorThemeLogo('icons/Group_1_white.svg')
+        setBackgrouncChallengeBox('#585858')
+        setChallengeNotActiveTextColor('var(--gray-line')
+    }
+
+    function selecionandoDarkBlueTheme() {
+        setBackGroundTheme('#0B3861')
+        setColorNameProfile('var(--white)')
+        setColorTextExperienceBar('var(--white)')
+        setcolorTextCompleteChallenge('var(--white)')
+        setColorThemeLogo('icons/Group_1_white.svg')
+        setBackgrouncChallengeBox('var(--blue-dark)')
+        setChallengeNotActiveTextColor('var(--white)')
     }
 
 
@@ -95,17 +106,15 @@ export function ThemeProvider({ children, ...rest }: ThemeContextProps) {
         <ThemeContext.Provider
             value={{
                 currentTheme,
-                selecionandoThemeDefault,
-                selecionandoDayTheme,
-                selecionandoNightTheme,
                 backgroundTheme,
                 colorNameProfile,
                 colorTextExperienceBar,
                 colorTextCompleteChallenge,
-                logoTheme,
+                logoColorTheme,
                 escolhendoTemaAtual,
-                configureModal,
-                isConfigureOpen
+                backgroundChallengeBox,
+                challengeNotActiveTextColor
+
             }}>
             {children}
         </ThemeContext.Provider>

@@ -12,12 +12,10 @@ import { GetServerSideProps } from 'next'
 import { CountDownProvider } from "../contexts/CountDownContext";
 import { ChallengesProvider } from "../contexts/ChallengeContext";
 import { ChangeTheme } from "../components/ChangeTheme";
-import { useContext } from "react";
-import { ThemeContext } from "../contexts/ThemeContext";
-import { ProfileContext, ProfileProvider } from "../contexts/ProfileContext";
-
-
-
+import React, { ReactNode, useContext } from "react";
+import { ThemeContext, ThemeProvider } from "../contexts/ThemeContext";
+import { ProfileProvider } from "../contexts/ProfileContext";
+import { ConfigModalProvider } from "../contexts/ConfigModal";
 
 interface HomeProps {
   level: number;
@@ -26,84 +24,114 @@ interface HomeProps {
   nomeProfile: string;
   isUserAlreadySetName: boolean;
   isGetNameModalOpen: boolean;
+  currentTheme: string;
 }
 
-export default function Home(props: HomeProps) {
+interface ViewProps {
+  level: number;
+  currentExperience: number;
+  challengesCompleted: number;
+  nomeProfile: string;
+  isUserAlreadySetName: boolean;
+  isGetNameModalOpen: boolean;
+}
 
-  const { backgroundTheme, logoTheme, colorNameProfile } = useContext(ThemeContext)
 
+export function View(props: ViewProps) {
 
+  const { backgroundTheme, colorNameProfile } = useContext(ThemeContext)
 
   return (
+    <ConfigModalProvider>
+      <ChallengesProvider
+        level={props.level}
+        currentExperience={props.currentExperience}
+        challengesCompleted={props.challengesCompleted}
 
-    <ChallengesProvider
-      level={props.level}
-      currentExperience={props.currentExperience}
-      challengesCompleted={props.challengesCompleted}
+      >
+        <div className={styles.container} style={{ background: backgroundTheme }}>
+          <div>
+            <Head>
+              <title>Início | move.it</title>
+            </Head>
 
-    >
-      <div className={styles.container} style={{ background: backgroundTheme }}>
-        <div>
-          <Head>
-            <title>Início | move.it</title>
-          </Head>
+            <header className={styles.logoContainer}>
+              <div className={styles.vazio}></div>
 
-          <header className={styles.logoContainer}>
-            <div className={styles.vazio}></div>
+              <div className={styles.titleHeader} style={{ color: colorNameProfile }}>Pomodoro to next level</div>
 
-            <div className={styles.titleHeader} style={{ color: colorNameProfile }}>Pomodoro to next level</div>
+              <div className={styles.themeContainer}><ChangeTheme /></div>
+            </header>
 
-            <div className={styles.themeContainer}><ChangeTheme /></div>
-          </header>
+            <CountDownProvider>
+              <ProfileProvider
+                isUserAlreadySetName={props.isUserAlreadySetName}
+                nomeProfile={props.nomeProfile}
+                isGetNameModalOpen={props.isGetNameModalOpen}
+              >
+                <section>
+                  <div>
+                    <ExperienceBar />
+                    <Profile />
+                    <CompleteChallenges />
+                    <CountingDown />
+                  </div>
 
-          <CountDownProvider>
-            <ProfileProvider
-              isUserAlreadySetName={props.isUserAlreadySetName}
-              nomeProfile={props.nomeProfile}
-              isGetNameModalOpen={props.isGetNameModalOpen}
-            >
-              <section>
-                <div>
-                  <ExperienceBar />
-                  <Profile />
-                  <CompleteChallenges />
-                  <CountingDown />
-                </div>
-
-                <div>
-                  <Challengesbox />
-                </div>
-              </section>
-              <footer>
-                <a href="https://github.com/gMateus/pomodoro_to_next_level" > Meu Github!</a>
-              </footer>
-            </ProfileProvider>
-          </CountDownProvider>
+                  <div>
+                    <Challengesbox />
+                  </div>
+                </section>
+                <footer>
+                  <a href="https://github.com/gMateus/pomodoro_to_next_level" style={{ color: colorNameProfile }} > Meu Github!</a>
+                </footer>
+              </ProfileProvider>
+            </CountDownProvider>
+          </div>
         </div>
-      </div>
-    </ChallengesProvider>
+      </ChallengesProvider>
+    </ConfigModalProvider>
+  )
+}
+
+
+export default function Home(props: HomeProps) {
+  return (
+
+    <ThemeProvider currentTheme={props.currentTheme}>
+      <View level={props.level}
+        currentExperience={props.currentExperience}
+        challengesCompleted={props.challengesCompleted}
+        nomeProfile={props.nomeProfile}
+        isUserAlreadySetName={props.isUserAlreadySetName}
+        isGetNameModalOpen={props.isGetNameModalOpen}
+      />
+    </ThemeProvider>
   )
 }
 
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
-  const { level, currentExperience, challengesCompleted, nomeProfile, isUserAlreadySetName, isGetNameModalOpen } = ctx.req.cookies
+  const { level, currentExperience,
+    challengesCompleted, nomeProfile,
+    isUserAlreadySetName, isGetNameModalOpen, currentTheme } = ctx.req.cookies
 
   console.log(nomeProfile)
-  console.log('userja colocou nome: ' + isUserAlreadySetName)
+  console.log('user ja colocou nome: ' + isUserAlreadySetName)
   console.log('abrir modal:' + isGetNameModalOpen)
   console.log(level)
   console.log(currentExperience)
   console.log(challengesCompleted)
+  console.log('currenttheme is ' + currentTheme)
   return {
     props: {
       level: Number(level ?? 1),
       currentExperience: Number(currentExperience ?? 0),
       challengesCompleted: Number(challengesCompleted ?? 0),
-      nomeProfile: String(nomeProfile ?? 'Mateus Guerreiro'),
+      nomeProfile: String(nomeProfile ?? 'Digite um nome'),
       isUserAlreadySetName: Boolean(isUserAlreadySetName ?? false),
-      isGetNameModalOpen: Boolean(isGetNameModalOpen ?? true)
+      isGetNameModalOpen: Boolean(isGetNameModalOpen ?? true),
+      currentTheme: String(currentTheme ?? 'defaultTheme')
     }
   }
 }

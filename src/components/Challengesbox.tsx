@@ -1,12 +1,14 @@
 import { useContext } from 'react';
 import { ChallengesContext } from '../contexts/ChallengeContext';
 import { CountDownContext } from '../contexts/CountDownContext';
+import { ThemeContext } from '../contexts/ThemeContext';
 import styles from '../styles/components/ChallengeBox.module.css';
 
 export function Challengesbox() {
 
     const { activeChallenge, resetChallenge, completeChallenge } = useContext(ChallengesContext);
     const { resetCountDown } = useContext(CountDownContext);
+    const { backgroundChallengeBox, challengeNotActiveTextColor } = useContext(ThemeContext)
 
     function handlerSucceededChallenge() {
         resetCountDown();
@@ -19,7 +21,7 @@ export function Challengesbox() {
     };
 
     return (
-        <div className={styles.challengesBoxContainer}>
+        <div className={styles.challengesBoxContainer} style={{ background: backgroundChallengeBox }}>
             {activeChallenge ? (
                 <div className={styles.challengeActive}>
                     <header> {activeChallenge.amount} </header>
@@ -49,7 +51,7 @@ export function Challengesbox() {
                     </footer>
                 </div>
             ) : (
-                    <div className={styles.challengeNotActive}>
+                    <div className={styles.challengeNotActive} style={{ color: challengeNotActiveTextColor }}>
                         <strong> Finalize um ciclo para receber um desafio</strong>
                         <p>
                             <img src="icons/level-up.svg" alt="Level up" />
