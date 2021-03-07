@@ -1,6 +1,8 @@
-Hoje eu conseguir fazer poucas coisas.
-Ajustei um pouco as cores do tema, acho que não ficou perfeito mas pelo menos está melhor do que antes.
+Eu hoje ajustei um pouco as cores do tema, acho que não ficou perfeito mas pelo menos está melhor do que antes.
 E também dei uma ajustada na animação da janela de opções. Antes ela só aumentava o tamanho, agora está
 se mexendo um pouco pra baixo quando a pessoa abre, acho que isso dá uma melhorada na animação.
 Também aproveitei para mudar o lugar em que o botão de alterar nome fica. Antes ele ficava do lado do 
-nome da pessoa. Agora ele está nas configurações junto com as opções de temas.
+
+Aproveitei também para corrigir um detalhe que eu não tinha percebido antes. Quando a pessoa terminava a sessão
+o tema que ela selecionou, junto com todos os outros dados também, não era salvo. Isso acontecia porque os cookies
+por padrão só fica salvo na sessão; e para resolver isso era só colocar um tempo de expiração.
