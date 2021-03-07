@@ -67,26 +67,6 @@
     justify-content: space-between;
 }
 
-.buttonStyle {
-    width: 8rem;
-    font-size: 1rem;
-    margin-left: 14px;
-    background: var(--blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-
-    color: var(--white);
-    border: 0;
-    font-weight: 500;
-    transition: filter 0.2s;
-}
-
-.buttonStyle:hover {
-    filter: brightness(0.9);
-}
-
 .profileContainer div strong div {
     margin-left: 0;
 }

@@ -33,6 +33,7 @@ export function ThemeProvider({ children, ...rest }: ThemeContextProps) {
 
 
 
+
     useEffect(() => {
         if (currentTheme == 'defaultTheme') {
             selecionandoThemeDefault();
@@ -42,9 +43,11 @@ export function ThemeProvider({ children, ...rest }: ThemeContextProps) {
             selecionandoDayTheme();
         } else if (currentTheme == 'darkBlueTheme') {
             selecionandoDarkBlueTheme()
+        } else if (currentTheme == 'especialTheme') {
+            specialTheme()
         }
 
-        Cookies.set('currentTheme', String(currentTheme))
+        Cookies.set('currentTheme', String(currentTheme), { expires: 31 })
     }, [currentTheme])
 
 
@@ -57,6 +60,8 @@ export function ThemeProvider({ children, ...rest }: ThemeContextProps) {
             setCurrentTheme('blueTheme')
         } else if (temaEscolhido == 'darkBlueTheme') {
             setCurrentTheme('darkBlueTheme')
+        } else if (temaEscolhido == 'especialTheme') {
+            setCurrentTheme('especialTheme')
         }
     }
 
@@ -67,17 +72,6 @@ export function ThemeProvider({ children, ...rest }: ThemeContextProps) {
         setcolorTextCompleteChallenge('var(--title)')
         setColorThemeLogo('icons/Group_1_black.svg')
         setBackgrouncChallengeBox('var(--white)')
-        setChallengeNotActiveTextColor('var(--title)')
-
-    }
-
-    function selecionandoDayTheme() {
-        setBackGroundTheme('#81DAF5')
-        setColorNameProfile('var(--title)')
-        setColorTextExperienceBar('var(--title)')
-        setcolorTextCompleteChallenge('var(--title)')
-        setColorThemeLogo('icons/Group_1_white.svg')
-        setBackgrouncChallengeBox('#00BFFF')
         setChallengeNotActiveTextColor('var(--title)')
     }
 
@@ -91,14 +85,36 @@ export function ThemeProvider({ children, ...rest }: ThemeContextProps) {
         setChallengeNotActiveTextColor('var(--gray-line')
     }
 
+    function selecionandoDayTheme() {
+        setBackGroundTheme('#81DAF5')
+        setColorNameProfile('var(--title)')
+        setColorTextExperienceBar('var(--title)')
+        setcolorTextCompleteChallenge('var(--title)')
+        setColorThemeLogo('icons/Group_1_white.svg')
+        setBackgrouncChallengeBox('#6ECFEC')
+        setChallengeNotActiveTextColor('var(--title)')
+    }
+
+
+
     function selecionandoDarkBlueTheme() {
-        setBackGroundTheme('#0B3861')
+        setBackGroundTheme('#313880')
         setColorNameProfile('var(--white)')
         setColorTextExperienceBar('var(--white)')
         setcolorTextCompleteChallenge('var(--white)')
         setColorThemeLogo('icons/Group_1_white.svg')
-        setBackgrouncChallengeBox('var(--blue-dark)')
+        setBackgrouncChallengeBox('#292F6C')
         setChallengeNotActiveTextColor('var(--white)')
+    }
+
+    function specialTheme() {
+        //#8257e6 #121214 #04d361
+        setBackGroundTheme('#121214')
+        setColorNameProfile('#04d361')
+        setColorTextExperienceBar('#04d361')
+        setcolorTextCompleteChallenge('#04d361')
+        setBackgrouncChallengeBox('#8257e6')
+        setChallengeNotActiveTextColor('#121214')
     }
 
 

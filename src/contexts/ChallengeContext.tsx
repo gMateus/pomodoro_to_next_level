@@ -56,10 +56,10 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     }, [])*/
 
     useEffect(() => {
-        Cookies.set('level', String(level));
+        Cookies.set('level', String(level), { expires: 31 });
         //alert("the level is, " + Cookies.get('level'))
-        Cookies.set('currentExperience', String(currentExperience));
-        Cookies.set('challengesCompleted', String(challengesCompleted));
+        Cookies.set('currentExperience', String(currentExperience), { expires: 31 });
+        Cookies.set('challengesCompleted', String(challengesCompleted), { expires: 31 });
     }, [level, currentExperience, challengesCompleted])
 
 

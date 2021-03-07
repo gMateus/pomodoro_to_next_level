@@ -14,11 +14,9 @@ export function Profile() {
 
     const { colorNameProfile } = useContext(ThemeContext)
 
-    const { nomeProfile, alterarNome } = useContext(ProfileContext)
+    const { nomeProfile } = useContext(ProfileContext)
 
-    function mudarNome() {
-        alterarNome()
-    }
+
 
 
     return (
@@ -35,7 +33,7 @@ export function Profile() {
             <div className={styles.nameAndLevel}>
                 <strong className={styles.nameContainer} style={{ color: colorNameProfile }}>
                     {nomeProfile}
-                    <button className={styles.buttonStyle} onClick={mudarNome}>Alterar nome</button>
+
                 </strong>
                 <p style={{ color: colorNameProfile }}>Level {level}</p>
             </div>

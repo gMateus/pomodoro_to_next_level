@@ -15,7 +15,8 @@ import { ChangeTheme } from "../components/ChangeTheme";
 import React, { ReactNode, useContext } from "react";
 import { ThemeContext, ThemeProvider } from "../contexts/ThemeContext";
 import { ProfileProvider } from "../contexts/ProfileContext";
-import { ConfigModalProvider } from "../contexts/ConfigModal";
+import { ConfigModalContext, ConfigModalProvider } from "../contexts/ConfigModal";
+import { ConfigModal } from "../components/ConfigModal";
 
 interface HomeProps {
   level: number;
@@ -39,36 +40,39 @@ interface ViewProps {
 
 export function View(props: ViewProps) {
 
-  const { backgroundTheme, colorNameProfile } = useContext(ThemeContext)
+  const { backgroundTheme, colorNameProfile, escolhendoTemaAtual } = useContext(ThemeContext)
+
 
   return (
-    <ConfigModalProvider>
-      <ChallengesProvider
-        level={props.level}
-        currentExperience={props.currentExperience}
-        challengesCompleted={props.challengesCompleted}
+    <ProfileProvider
+      isUserAlreadySetName={props.isUserAlreadySetName}
+      nomeProfile={props.nomeProfile}
+      isGetNameModalOpen={props.isGetNameModalOpen}
+    >
+      <ConfigModalProvider>
+        <ChallengesProvider
+          level={props.level}
+          currentExperience={props.currentExperience}
+          challengesCompleted={props.challengesCompleted}
 
-      >
-        <div className={styles.container} style={{ background: backgroundTheme }}>
-          <div>
-            <Head>
-              <title>Início | move.it</title>
-            </Head>
+        >
+          <div className={styles.container} style={{ background: backgroundTheme }}>
+            <div>
+              <Head>
+                <title>Início | move.it</title>
+              </Head>
 
-            <header className={styles.logoContainer}>
-              <div className={styles.vazio}></div>
+              <header className={styles.logoContainer}>
+                <div className={styles.vazio}></div>
 
-              <div className={styles.titleHeader} style={{ color: colorNameProfile }}>Pomodoro to next level</div>
+                <div className={styles.titleHeader} style={{ color: colorNameProfile }}
+                >Pomodoro to next level</div>
 
-              <div className={styles.themeContainer}><ChangeTheme /></div>
-            </header>
+                <div className={styles.themeContainer}><ChangeTheme /></div>
+              </header>
 
-            <CountDownProvider>
-              <ProfileProvider
-                isUserAlreadySetName={props.isUserAlreadySetName}
-                nomeProfile={props.nomeProfile}
-                isGetNameModalOpen={props.isGetNameModalOpen}
-              >
+              <CountDownProvider>
+
                 <section>
                   <div>
                     <ExperienceBar />
@@ -84,17 +88,23 @@ export function View(props: ViewProps) {
                 <footer>
                   <a href="https://github.com/gMateus/pomodoro_to_next_level" style={{ color: colorNameProfile }} > Meu Github!</a>
                 </footer>
-              </ProfileProvider>
-            </CountDownProvider>
+
+              </CountDownProvider>
+            </div>
           </div>
-        </div>
-      </ChallengesProvider>
-    </ConfigModalProvider>
+        </ChallengesProvider>
+      </ConfigModalProvider>
+    </ProfileProvider>
+
   )
 }
 
 
 export default function Home(props: HomeProps) {
+
+
+
+
   return (
 
     <ThemeProvider currentTheme={props.currentTheme}>

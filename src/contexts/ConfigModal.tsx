@@ -12,12 +12,13 @@ export function ConfigModalProvider({ children }) {
     const [isConfigureOpen, setIsConfigureOpen] = useState(false)
 
     function configureModal() {
-        //alert('testee')
+
         if (isConfigureOpen == true) {
             setIsConfigureOpen(false)
         } else {
             setIsConfigureOpen(true)
         }
+
     }
 
 

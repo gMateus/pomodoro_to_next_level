@@ -63,13 +63,13 @@ export function ProfileProvider({ children, ...rest }: ProfileProviderProps) {
     }
 
     useEffect(() => {
-        Cookies.set('nomeProfile', String(nomeProfile))
+        Cookies.set('nomeProfile', String(nomeProfile), { expires: 31 })
         console.log('nome profile is ' + nomeProfile)
 
-        Cookies.set('isUserAlreadySetName', String(isUserAlreadySetName))
+        Cookies.set('isUserAlreadySetName', String(isUserAlreadySetName), { expires: 31 })
         console.log('isUserAlreadySetName is ' + isUserAlreadySetName)
 
-        Cookies.set('isGetNameModalOpen', String(isGetNameModalOpen))
+        Cookies.set('isGetNameModalOpen', String(isGetNameModalOpen), { expires: 31 })
         //console.log('isGetNameModalOpen is ' + isGetNameModalOpen)
 
     }, [nomeProfile, isGetNameModalOpen, isUserAlreadySetName])
