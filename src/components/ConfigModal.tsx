@@ -8,19 +8,17 @@ export function ConfigModal() {
 
     const { escolhendoTemaAtual } = useContext(ThemeContext)
     const { isConfigureOpen } = useContext(ConfigModalContext)
+    const { alterarNome } = useContext(ProfileContext)
+
     const [currentHeight, setCurrentHeight] = useState('3rem')
     const [currentMarginTop, setCurrentMarginTop] = useState('1rem')
 
-
     useEffect(() => {
-        //alert(isConfigureOpen)
+        //console.log(isConfigureOpen)
         setCurrentHeight('13.5rem')
         setCurrentMarginTop('2.4rem')
 
     }, [isConfigureOpen])
-
-
-    const { alterarNome } = useContext(ProfileContext)
 
     function mudarNome() {
         alterarNome()
@@ -28,7 +26,6 @@ export function ConfigModal() {
 
     //78  76 87 52
     return (
-
         <div className={styles.configOpen} style={{ height: `${currentHeight}`, marginTop: `${currentMarginTop}` }} >
             <strong /*onClick={() => escolhendoTemaAtual('especialTheme')}*/> Mudar tema</strong>
             <button className={styles.theme} onClick={() => escolhendoTemaAtual('defaultTheme')}>Padrão</button>
@@ -39,6 +36,5 @@ export function ConfigModal() {
                 <button className={styles.buttonStyle} onClick={mudarNome}>Alterar nome</button>
             </div>
         </div>
-
     )
 };

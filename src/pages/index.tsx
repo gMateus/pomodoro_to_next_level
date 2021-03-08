@@ -12,11 +12,11 @@ import { GetServerSideProps } from 'next'
 import { CountDownProvider } from "../contexts/CountDownContext";
 import { ChallengesProvider } from "../contexts/ChallengeContext";
 import { ChangeTheme } from "../components/ChangeTheme";
-import React, { ReactNode, useContext } from "react";
+import React, { useContext } from "react";
 import { ThemeContext, ThemeProvider } from "../contexts/ThemeContext";
 import { ProfileProvider } from "../contexts/ProfileContext";
-import { ConfigModalContext, ConfigModalProvider } from "../contexts/ConfigModal";
-import { ConfigModal } from "../components/ConfigModal";
+import { ConfigModalProvider } from "../contexts/ConfigModal";
+import { SideBar } from "../components/Sidebar";
 
 interface HomeProps {
   level: number;
@@ -40,8 +40,7 @@ interface ViewProps {
 
 export function View(props: ViewProps) {
 
-  const { backgroundTheme, colorNameProfile, escolhendoTemaAtual } = useContext(ThemeContext)
-
+  const { backgroundTheme, colorNameProfile } = useContext(ThemeContext)
 
   return (
     <ProfileProvider
@@ -56,54 +55,50 @@ export function View(props: ViewProps) {
           challengesCompleted={props.challengesCompleted}
 
         >
-          <div className={styles.container} style={{ background: backgroundTheme }}>
-            <div>
-              <Head>
-                <title>Início | move.it</title>
-              </Head>
+          <div style={{ display: 'flex' }}>
+            <SideBar />
+            <div className={styles.container} style={{ background: backgroundTheme, marginLeft: '10px' }}>
+              <div>
+                <Head>
+                  <title>Início | move.it</title>
+                </Head>
 
-              <header className={styles.logoContainer}>
-                <div className={styles.vazio}></div>
+                <header className={styles.logoContainer}>
+                  <div className={styles.vazio}></div>
 
-                <div className={styles.titleHeader} style={{ color: colorNameProfile }}
-                >Pomodoro to next level</div>
+                  <div className={styles.titleHeader} style={{ color: colorNameProfile }}
+                  >Pomodoro to next level</div>
 
-                <div className={styles.themeContainer}><ChangeTheme /></div>
-              </header>
+                  <div className={styles.themeContainer}><ChangeTheme /></div>
+                </header>
 
-              <CountDownProvider>
+                <CountDownProvider>
+                  <section>
+                    <div>
+                      <ExperienceBar />
+                      <Profile />
+                      <CompleteChallenges />
+                      <CountingDown />
+                    </div>
 
-                <section>
-                  <div>
-                    <ExperienceBar />
-                    <Profile />
-                    <CompleteChallenges />
-                    <CountingDown />
-                  </div>
-
-                  <div>
-                    <Challengesbox />
-                  </div>
-                </section>
-                <footer>
-                  <a href="https://github.com/gMateus/pomodoro_to_next_level" style={{ color: colorNameProfile }} > Meu Github!</a>
-                </footer>
-
-              </CountDownProvider>
+                    <div>
+                      <Challengesbox />
+                    </div>
+                  </section>
+                  <footer>
+                    <a href="https://github.com/gMateus/pomodoro_to_next_level" style={{ color: colorNameProfile }} > Meu Github!</a>
+                  </footer>
+                </CountDownProvider>
+              </div>
             </div>
           </div>
         </ChallengesProvider>
       </ConfigModalProvider>
     </ProfileProvider>
-
   )
 }
 
-
 export default function Home(props: HomeProps) {
-
-
-
 
   return (
 
@@ -118,7 +113,6 @@ export default function Home(props: HomeProps) {
     </ThemeProvider>
   )
 }
-
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 

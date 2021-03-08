@@ -8,8 +8,10 @@ export function CompleteChallenges() {
     const { challengesCompleted } = useContext(ChallengesContext)
     const { colorTextCompleteChallenge } = useContext(ThemeContext)
 
+
     return (
-        <div className={styles.completeChallengesContainer} style={{ color: colorTextCompleteChallenge }}>
+        <div className={styles.completeChallengesContainer}
+            style={{ color: colorTextCompleteChallenge }}>
             <span>Desafios completos</span>
             <span>{challengesCompleted}</span>
         </div>

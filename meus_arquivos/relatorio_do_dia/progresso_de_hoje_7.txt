@@ -1,0 +1,12 @@
+## Recado
+
+Eu estava achando que não tinha mais muita coisa para fazer na aplicação, mas isso foi antes de lembrar que tem o sistema de ranking para implementar ainda.
+Tinha esquecido completamente dessa funcionalidade.
+E farei isso. Só que eu vou precisar criar um servidor pra armazenar os dados das pessoas na aplicação.
+
+Eu ainda não sei direito como configurar o servidor e como implementar ele na aplicação. Então vou precisar ver como que faz esses negócios.
+Com isso a primeira temporada está oficialmente encerrada.
+Agora eu acho que não farei os commits diariamente. Provavélmente eu só devo commitar de novo quando toda essa parte estiver finalizada, mas ainda estarei
+relatando os progressos que fizer.
+
+E vou deletar a branch secundária, já que não farei mais uso dela. Qualquer coisa se eu precisar eu crio de novo.

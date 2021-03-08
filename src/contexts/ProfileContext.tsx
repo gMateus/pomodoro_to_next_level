@@ -5,7 +5,6 @@ import { NameModal } from "../components/NameModal"
 
 interface ProfileContextData {
     nomeProfile: string;
-    styliengInput: object;
     confirmeThanUserAlreadySetName: () => void;
     isUserAlreadySetName: boolean;
     isGetNameModalOpen: boolean;
@@ -28,20 +27,10 @@ export const ProfileContext = createContext({} as ProfileContextData)
 
 export function ProfileProvider({ children, ...rest }: ProfileProviderProps) {
 
-    const styliengInput = {
-        background: 'none',
-        border: 'none',
-        width: '9rem',
-        maxLenght: "10",
-
-    }
     const [nomeProfile, setNomeProfile] = useState(rest.nomeProfile)
 
     const [isGetNameModalOpen, setIsGetNameModalOpen] = useState(rest.isGetNameModalOpen)
-
     const [isUserAlreadySetName, setIsUserAlreadySetName] = useState(rest.isUserAlreadySetName)
-
-
 
     function alterandoNome(nome) {
         if (nome.length > 0 && nome.length <= 18) {
@@ -54,7 +43,7 @@ export function ProfileProvider({ children, ...rest }: ProfileProviderProps) {
     function confirmeThanUserAlreadySetName() {
         setIsUserAlreadySetName(true)
         setIsGetNameModalOpen(false)
-        console.log('usuario ja escolheu o nome')
+        console.log('Usuário já escolheu o nome.')
     }
 
     function alterarNome() {
@@ -64,23 +53,17 @@ export function ProfileProvider({ children, ...rest }: ProfileProviderProps) {
 
     useEffect(() => {
         Cookies.set('nomeProfile', String(nomeProfile), { expires: 31 })
-        console.log('nome profile is ' + nomeProfile)
-
+        //console.log('nome profile is ' + nomeProfile)
         Cookies.set('isUserAlreadySetName', String(isUserAlreadySetName), { expires: 31 })
-        console.log('isUserAlreadySetName is ' + isUserAlreadySetName)
-
+        //console.log('isUserAlreadySetName is ' + isUserAlreadySetName)
         Cookies.set('isGetNameModalOpen', String(isGetNameModalOpen), { expires: 31 })
         //console.log('isGetNameModalOpen is ' + isGetNameModalOpen)
-
     }, [nomeProfile, isGetNameModalOpen, isUserAlreadySetName])
-
-
 
     return (
         <ProfileContext.Provider
             value={{
                 nomeProfile,
-                styliengInput,
                 confirmeThanUserAlreadySetName,
                 isUserAlreadySetName,
                 isGetNameModalOpen,

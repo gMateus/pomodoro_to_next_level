@@ -3,21 +3,13 @@ import { ChallengesContext } from '../contexts/ChallengeContext'
 import { ProfileContext } from '../contexts/ProfileContext'
 import { ThemeContext } from '../contexts/ThemeContext'
 import styles from '../styles/components/Profile.module.css'
-
 import { FaCamera } from 'react-icons/fa';
-
 
 export function Profile() {
 
-
     const { level } = useContext(ChallengesContext)
-
     const { colorNameProfile } = useContext(ThemeContext)
-
     const { nomeProfile } = useContext(ProfileContext)
-
-
-
 
     return (
         <div className={styles.profileContainer}>

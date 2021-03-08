@@ -21,7 +21,6 @@ export function ConfigModalProvider({ children }) {
 
     }
 
-
     return (
         <ConfigModalContext.Provider
             value={{
