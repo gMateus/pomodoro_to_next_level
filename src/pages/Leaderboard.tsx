@@ -2,7 +2,7 @@ import { GetServerSideProps } from 'next'
 import React, { useContext } from 'react'
 import { ChallengesContext, ChallengesProvider } from '../contexts/ChallengeContext'
 import { ProfileContext, ProfileProvider } from '../contexts/ProfileContext'
-import styles from '../styles/pages/Leaderboard.module.css'
+import styles from '../styles/pages/LeaderBoard.module.css'
 
 function UserInfo() {
 
