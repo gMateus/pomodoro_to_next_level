@@ -9,10 +9,10 @@ export function SideBar() {
             }}>
             <img src="icons/Logo.svg" alt="" />
             <div style={{ display: 'flex', flexDirection: 'column', height: '55%', width: '3rem' }}>
-                <a href="http://localhost:3000/Home" style={{ marginBottom: '1rem' }}>
+                <a href="https://pomodoro-to-next-level.vercel.app/" style={{ marginBottom: '1rem' }}>
                     <img src="icons/Home_(1).svg" alt="" />
                 </a>
-                <a href="http://localhost:3000/Leaderboard">
+                <a href="https://pomodoro-to-next-level.vercel.app/LeaderBoard">
                     <img src="icons/award_(1).svg" alt="" />
                 </a>
             </div>
