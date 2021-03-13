@@ -13,9 +13,12 @@ interface responseData {
     level: number;
     id: number;
     name: string;
+    imagePath: string;
 }
 
 export default function Login() {
+
+
 
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -48,6 +51,7 @@ export default function Login() {
             Cookies.set('completedChallenges', String(data.completedChallenges));
             Cookies.set('level', String(data.level));
             Cookies.set('currentExperience', String(data.currentExperience));
+            Cookies.set('imagePath', data.imagePath);
 
         } catch (error) {
             return alert('Alguma coisa deu errada.');

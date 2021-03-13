@@ -15,7 +15,7 @@
     height: 100vh;
 
     margin: 0 auto;
-    padding: 1.8rem 1rem;
+    padding: 1.8rem 0.7rem;
 
 }
 
@@ -24,9 +24,8 @@
     
 }
 
-.leaderBoard > div {
+.leaderBoard > body {
     max-width: 990px;
-    height: 20rem;
 }
 
 .leaderBoard body > header {
@@ -36,31 +35,29 @@
     margin-bottom: 3rem;
 }
 
-.leaderBoard body > main > header > div > strong {
+.leaderBoard body > div > header > div > strong {
     font-weight: 600;
     font-family: Inter;
     color: var(--text);
     font-size: 0.8rem;
+
 }
 
-.leaderBoard body > main > header {
+.leaderBoard body > div > header {
     margin-top: 1.5rem;
     display: flex;
-    width: 5rem;
+    width: 100%;
+
     justify-content: space-between;
     padding-right: 3rem;
 }
 
-.leaderBoard body > main > header > div {
+.leaderBoard body > div > header > div {
     display: flex;
-    width: 11rem;
+    width: 9rem;
+
     justify-content: space-between;
 }
-
-.leaderBoard body > main > header > div:last-child {
-    width: 17rem;
-}
-
 
 .userContainer {
     display: flex;
@@ -74,6 +71,7 @@
     display: flex;
     border-radius: 5px;
     width: 5rem;
+    
     justify-content: center;
     align-items: center;
     background: var(--white);
@@ -131,5 +129,9 @@
 @media(max-width: 720px) {
     .container {
         flex-direction: column;
+    }
+
+    .leaderBoard > body > div {
+        width: 100%;
     }
 }

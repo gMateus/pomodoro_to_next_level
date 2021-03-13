@@ -39,13 +39,13 @@ export default function LeaderBoard({ LeaderBoard }: LeaderBoardProps) {
                             </div>
                         </header>
                         {LeaderBoard.map((user, index) => (
-                            <main>
+                            <div>
                                 <div>
                                     <div className={styles.userContainer}>
                                         <div className={styles.position}> {index + 1}</div>
                                         <div className={styles.usersData}>
                                             <div className={styles.imagem} >
-                                                <img src={`http://localhost:3334/files/${user.imagePath}`} style={{ height: '4rem', width: '4rem' }} alt="user image" />
+                                                <img src={`https://pomodorotonextlevel.herokuapp.com/files/${user.imagePath}`} style={{ height: '4rem', width: '4rem' }} alt="user image" />
                                             </div>
                                             <div className={styles.NomeAndLevel}>
                                                 <strong>
@@ -70,7 +70,7 @@ export default function LeaderBoard({ LeaderBoard }: LeaderBoardProps) {
                                         </div>
                                     </div>
                                 </div>
-                            </main>
+                            </div>
                         ))}
                     </div>
                 </body>
