@@ -8,7 +8,7 @@ import Cookies from 'js-cookie'
 
 export function Profile() {
 
-    const { level } = useContext(ChallengesContext)
+    const level = Cookies.get('level')
     //const { colorNameProfile } = useContext(ThemeContext)
     const name = Cookies.get('name')
     const imgPath = Cookies.get('imagePath');
