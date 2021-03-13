@@ -1,8 +1,8 @@
-import dotenv from 'dotenv';
+//import dotenv from 'dotenv';
 import axios from 'axios';
 
 
-dotenv.config();
+//dotenv.config();
 
 const api = axios.create({
     baseURL: process.env.BASE_URL,
