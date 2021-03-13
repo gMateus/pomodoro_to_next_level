@@ -88,6 +88,6 @@ export const getStaticProps: GetStaticProps = async () => {
         props: {
             LeaderBoard,
         },
-        revalidate: 60,
+        revalidate: 10,
     }
 }
