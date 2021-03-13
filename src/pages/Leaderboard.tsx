@@ -1,126 +1,93 @@
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import React, { useContext } from 'react'
+import { SideBar } from '../components/Sidebar'
 import { ChallengesContext, ChallengesProvider } from '../contexts/ChallengeContext'
 import { ProfileContext, ProfileProvider } from '../contexts/ProfileContext'
+import api from './api/api'
 import styles from '../styles/pages/LeaderBoard.module.css'
 
-function UserInfo() {
+interface LeaderBoardUsers {
+    name: string;
+    level: number;
+    currentExperience: number;
+    completedChallenges: number;
+    imagePath: string;
+}
 
-    const { nomeProfile } = useContext(ProfileContext)
-    const { currentExperience, level, challengesCompleted } = useContext(ChallengesContext)
+interface LeaderBoardProps {
+    LeaderBoard: LeaderBoardUsers[];
+}
 
+export default function LeaderBoard({ LeaderBoard }: LeaderBoardProps) {
     return (
-        <div className={styles.userContainer}>
-            <div className={styles.position}> 1</div>
-            <div className={styles.usersData}>
-                <div className={styles.imagem}>
-                    <img src="https://github.com/gMateus.png" alt="" />
-                </div>
-                <div className={styles.NomeAndLevel}>
-                    <strong>
-                        {nomeProfile}
-                    </strong>
-
-                    <p>{level}</p>
-                </div>
-
-                <div className={styles.info}>
+        <div className={styles.container}>
+            <SideBar page={'leaderboard'} />
+            <div className={styles.leaderBoard}>
+                <body>
+                    <header>
+                        <h1>Leaderboard</h1>
+                    </header>
                     <div>
-                        <p>{challengesCompleted}</p>
-                        <p>completados</p>
+                        <header>
+                            <div>
+                                <strong style={{ marginRight: '1rem' }}>POSIÇÃO</strong>
+                                <strong style={{ marginRight: '4rem' }}>USUÁRIO</strong>
+                            </div>
+                            <div style={{ marginLeft: '3rem' }}>
+                                <strong style={{ marginRight: '2rem' }}>DESAFIOS</strong>
+                                <strong>EXPERIÊNCIA</strong>
+                            </div>
+                        </header>
+                        {LeaderBoard.map((user, index) => (
+                            <main>
+                                <div>
+                                    <div className={styles.userContainer}>
+                                        <div className={styles.position}> {index + 1}</div>
+                                        <div className={styles.usersData}>
+                                            <div className={styles.imagem} >
+                                                <img src={`http://localhost:3334/files/${user.imagePath}`} style={{ height: '4rem', width: '4rem' }} alt="user image" />
+                                            </div>
+                                            <div className={styles.NomeAndLevel}>
+                                                <strong>
+                                                    {user.name}
+                                                </strong>
+
+                                                <p>level {user.level}</p>
+                                            </div>
+
+                                            <div className={styles.info}>
+                                                <div>
+                                                    <p>{user.completedChallenges}</p>
+                                                    <p>completados</p>
+                                                </div>
+                                            </div>
+                                            <div className={styles.info}>
+                                                <div>
+                                                    <p>{user.currentExperience}</p>
+                                                    <p>xp</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </main>
+                        ))}
                     </div>
-                </div>
-                <div className={styles.info}>
-                    <div>
-                        <p>{currentExperience}</p>
-                        <p>xp</p>
-                    </div>
-                </div>
+                </body>
             </div>
         </div>
     )
 }
 
-export default function LeaderBoard(props) {
-    return (
-        <ProfileProvider
-            nomeProfile={props.nomeProfile}
-            isUserAlreadySetName={props.isUserAlreadySetName}
-            isGetNameModalOpen={props.isGetNameModalOpen}
-        >
-            <ChallengesProvider
-                level={props.level}
-                currentExperience={props.currentExperience}
-                challengesCompleted={props.challengesCompleted}
+export const getStaticProps: GetStaticProps = async () => {
 
-            >
-                <div style={{ display: 'flex' }}>
-                    <div
-                        style={{
-                            height: '100vh', width: '6rem',
-                            background: 'var(--white)', display: 'flex', flexDirection: 'column',
-                            justifyContent: 'space-between', alignItems: 'center'
+    const response = await api.get('users');
+    const LeaderBoard = response.data;
 
-                        }}>
-                        <img src="icons/Logo.svg" alt="" style={{ margin: '1rem' }} />
-                        <div style={{ display: 'flex', flexDirection: 'column', height: '55%', width: '3rem' }}>
-                            <a href="http://localhost:3000/" style={{ marginBottom: '1rem' }}>
-                                <img src="icons/Home.svg" alt="" />
-                            </a>
-                            <a href="http://localhost:3000/Leaderboard">
-                                <img src="icons/award.svg" alt="" />
-                            </a>
-                        </div>
-                    </div>
-                    <div className={styles.container}>
-
-                        <body>
-                            <header>
-                                <h1>Leaderboard</h1>
-                            </header>
-                            <main>
-                                <header>
-                                    <div>
-                                        <strong>POSIÇÃO</strong>
-                                        <strong>USUÁRIO</strong>
-                                    </div>
-                                    <div>
-                                        <strong>DESAFIOS</strong>
-                                        <strong>EXPERIÊNCIA</strong>
-                                    </div>
-                                </header>
-                                <main>
-                                    <div>
-                                        <UserInfo />
-                                        <UserInfo />
-                                        <UserInfo />
-                                    </div>
-                                </main>
-                            </main>
-                        </body>
-                    </div>
-                </div>
-            </ChallengesProvider>
-        </ProfileProvider>
-    )
-}
-
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-
-    const { level, currentExperience,
-        challengesCompleted, nomeProfile,
-        isUserAlreadySetName, isGetNameModalOpen, currentTheme } = ctx.req.cookies
-
-    console.log(nomeProfile)
-    console.log(level)
-    console.log(currentExperience)
-    console.log(challengesCompleted)
     return {
         props: {
-            level: Number(level ?? 1),
-            currentExperience: Number(currentExperience ?? 0),
-            challengesCompleted: Number(challengesCompleted ?? 0),
-            nomeProfile: String(nomeProfile ?? 'Digite um nome'),
-        }
+            LeaderBoard,
+        },
+        revalidate: 60,
     }
 }

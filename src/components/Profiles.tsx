@@ -4,30 +4,23 @@ import { ProfileContext } from '../contexts/ProfileContext'
 import { ThemeContext } from '../contexts/ThemeContext'
 import styles from '../styles/components/Profile.module.css'
 import { FaCamera } from 'react-icons/fa';
+import Cookies from 'js-cookie'
 
 export function Profile() {
 
     const { level } = useContext(ChallengesContext)
-    const { colorNameProfile } = useContext(ThemeContext)
-    const { nomeProfile } = useContext(ProfileContext)
+    //const { colorNameProfile } = useContext(ThemeContext)
+    const name = Cookies.get('name')
+    const imgPath = Cookies.get('imagePath');
 
     return (
         <div className={styles.profileContainer}>
-            <div className={styles.photoContainer}>
-                <div className={styles.headIconPhoto}></div>
-                <div className={styles.bodyIconPhoto}></div>
-                <div onClick={event => alert('Em breve...')}>
-                    <FaCamera />
-                </div>
-
-            </div>
-
+            <img style={{ height: '4rem', width: '4rem', borderRadius: '50%' }} src={`https://pomodoro-to-next-level.vercel.app:3334/files/${imgPath}`} alt={`${name}-image`} />
             <div className={styles.nameAndLevel}>
-                <strong className={styles.nameContainer} style={{ color: colorNameProfile }}>
-                    {nomeProfile}
-
+                <strong className={styles.nameContainer}>
+                    {name}
                 </strong>
-                <p style={{ color: colorNameProfile }}>Level {level}</p>
+                <p>Level {level}</p>
             </div>
         </div >
     )

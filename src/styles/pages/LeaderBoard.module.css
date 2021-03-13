@@ -1,58 +1,63 @@
 .container {
     display: flex;
+}
+
+.leaderBoard {
+    display: flex;
+
     flex-direction: column;
 
-    align-items: center;
-    justify-content: center;
-
+    align-items: flex-start;
+    justify-content: space-around;
 
     background: var(--background);
 
     height: 100vh;
-    width: 100vw;
 
-    padding: 3rem;
+    margin: 0 auto;
+    padding: 1.8rem 1rem;
+
 }
 
-.container header{
+.leaderBoard header{
     display: flex;
     
 }
 
-.container body {
+.leaderBoard > div {
     max-width: 990px;
-    height: 100%;
+    height: 20rem;
 }
 
-.container body > header {
+.leaderBoard body > header {
     display: flex;
     font-family: Inter;
     font-weight: 600;
     margin-bottom: 3rem;
 }
 
-.container body > main > header > div > strong {
+.leaderBoard body > main > header > div > strong {
     font-weight: 600;
     font-family: Inter;
     color: var(--text);
     font-size: 0.8rem;
 }
 
-.container body > main > header {
+.leaderBoard body > main > header {
     margin-top: 1.5rem;
     display: flex;
-    width: 50rem;
+    width: 5rem;
     justify-content: space-between;
     padding-right: 3rem;
 }
 
-.container body > main > header > div {
+.leaderBoard body > main > header > div {
     display: flex;
     width: 11rem;
     justify-content: space-between;
 }
 
-.container body > main > header > div:last-child {
+.leaderBoard body > main > header > div:last-child {
     width: 17rem;
 }
 
@@ -121,4 +126,10 @@
 
 .info > div > p:first-child {
     color: var(--blue);
+}
+
+@media(max-width: 720px) {
+    .container {
+        flex-direction: column;
+    }
 }

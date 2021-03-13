@@ -12,37 +12,39 @@ import { GetServerSideProps } from 'next'
 import { CountDownProvider } from "../contexts/CountDownContext";
 import { ChallengesProvider } from "../contexts/ChallengeContext";
 import { ChangeTheme } from "../components/ChangeTheme";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { ThemeContext, ThemeProvider } from "../contexts/ThemeContext";
 import { ProfileProvider } from "../contexts/ProfileContext";
 import { ConfigModalProvider } from "../contexts/ConfigModal";
 import { SideBar } from "../components/Sidebar";
+import Cookies from "js-cookie";
+import router from "next/router";
 
 interface HomeProps {
   level: number;
   currentExperience: number;
-  challengesCompleted: number;
+  completedChallenges: number;
   nomeProfile: string;
   isUserAlreadySetName: boolean;
   isGetNameModalOpen: boolean;
   currentTheme: string;
 }
 
-interface ViewProps {
-  level: number;
-  currentExperience: number;
-  challengesCompleted: number;
-  nomeProfile: string;
-  isUserAlreadySetName: boolean;
-  isGetNameModalOpen: boolean;
-}
 
+export default function Home(props: HomeProps) {
 
-export function View(props: ViewProps) {
+  useEffect(() => {
+    const checkUserLoggedIn = Cookies.get('userId');
 
-  const { backgroundTheme, colorNameProfile } = useContext(ThemeContext)
+    if (!checkUserLoggedIn) {
+      router.push('/login');
+    }
+  }, []);
 
   return (
+    //<ThemeProvider
+    //  currentTheme={props.currentTheme}
+    //>
     <ProfileProvider
       isUserAlreadySetName={props.isUserAlreadySetName}
       nomeProfile={props.nomeProfile}
@@ -52,12 +54,11 @@ export function View(props: ViewProps) {
         <ChallengesProvider
           level={props.level}
           currentExperience={props.currentExperience}
-          challengesCompleted={props.challengesCompleted}
-
+          completedChallenges={props.completedChallenges}
         >
-          <div style={{ display: 'flex' }}>
-            <SideBar />
-            <div className={styles.container} style={{ background: backgroundTheme, marginLeft: '10px' }}>
+          <div className={styles.container} style={{ display: 'flex' }}>
+            <SideBar page={"dashboard"} />
+            <div className={styles.challengesContainer} style={{ /*background: backgroundTheme,*/ marginLeft: '10px' }}>
               <div>
                 <Head>
                   <title>Início | move.it</title>
@@ -66,10 +67,9 @@ export function View(props: ViewProps) {
                 <header className={styles.logoContainer}>
                   <div className={styles.vazio}></div>
 
-                  <div className={styles.titleHeader} style={{ color: colorNameProfile }}
+                  <div className={styles.titleHeader} //style={{ color: colorNameProfile }}
                   >Pomodoro to next level</div>
 
-                  <div className={styles.themeContainer}><ChangeTheme /></div>
                 </header>
 
                 <CountDownProvider>
@@ -86,7 +86,7 @@ export function View(props: ViewProps) {
                     </div>
                   </section>
                   <footer>
-                    <a href="https://github.com/gMateus/pomodoro_to_next_level" style={{ color: colorNameProfile }} > Meu Github!</a>
+                    <a href="https://github.com/gMateus/pomodoro_to_next_level" /* style={{ color: colorNameProfile }} */> Meu Github!</a>
                   </footer>
                 </CountDownProvider>
               </div>
@@ -95,47 +95,33 @@ export function View(props: ViewProps) {
         </ChallengesProvider>
       </ConfigModalProvider>
     </ProfileProvider>
-  )
-}
-
-export default function Home(props: HomeProps) {
-
-  return (
-
-    <ThemeProvider currentTheme={props.currentTheme}>
-      <View level={props.level}
-        currentExperience={props.currentExperience}
-        challengesCompleted={props.challengesCompleted}
-        nomeProfile={props.nomeProfile}
-        isUserAlreadySetName={props.isUserAlreadySetName}
-        isGetNameModalOpen={props.isGetNameModalOpen}
-      />
-    </ThemeProvider>
+    ///ThemeProvider>
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   const { level, currentExperience,
-    challengesCompleted, nomeProfile,
-    isUserAlreadySetName, isGetNameModalOpen, currentTheme } = ctx.req.cookies
+    completedChallenges, name,
+    //isUserAlreadySetName, isGetNameModalOpen, currentTheme 
+  } = ctx.req.cookies
 
-  console.log(nomeProfile)
-  console.log('user ja colocou nome: ' + isUserAlreadySetName)
-  console.log('abrir modal:' + isGetNameModalOpen)
-  console.log(level)
-  console.log(currentExperience)
-  console.log(challengesCompleted)
-  console.log('currenttheme is ' + currentTheme)
+  console.log("name: " + name)
+  //console.log('user ja colocou nome: ' + isUserAlreadySetName)
+  //console.log('abrir modal:' + isGetNameModalOpen)
+  console.log("level: " + level)
+  console.log("currentExperience: " + currentExperience)
+  console.log("completedChallenges: " + completedChallenges)
+  //console.log('currenttheme is ' + currentTheme)
   return {
     props: {
       level: Number(level ?? 1),
       currentExperience: Number(currentExperience ?? 0),
-      challengesCompleted: Number(challengesCompleted ?? 0),
-      nomeProfile: String(nomeProfile ?? 'Digite um nome'),
-      isUserAlreadySetName: Boolean(isUserAlreadySetName ?? false),
-      isGetNameModalOpen: Boolean(isGetNameModalOpen ?? true),
-      currentTheme: String(currentTheme ?? 'defaultTheme')
+      completedChallenges: Number(completedChallenges ?? 0),
+      name: String(name ?? 'Digite um nome'),
+      //isUserAlreadySetName: Boolean(isUserAlreadySetName ?? false),
+      //isGetNameModalOpen: Boolean(isGetNameModalOpen ?? true),
+      //currentTheme: String(currentTheme ?? 'defaultTheme')
     }
   }
 }

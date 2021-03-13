@@ -1,0 +1,83 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  background: var(--blue);
+  position: relative;
+}
+
+.container > img {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+}
+
+
+.container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+}
+
+.input{
+    background-image: linear-gradient(to right, var(--blue-dark), var(--blue-dark));
+    height: 3rem;
+    border: 0 none;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    padding-left: 1rem;
+}
+
+.input::placeholder {
+    color: var(--text-highlight);
+}
+
+.imageInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 20rem;
+    height: 4rem;
+  }
+  
+  .imageInput > input {
+    visibility: hidden;
+    display: none;
+  }
+  
+  .imageInput label {
+    height: 4rem;
+  
+    border: transparent;
+    border-radius: 5px;
+  
+    margin: 0.25rem 0;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--white);
+    background: linear-gradient(to right, #4953b8 0%, #4953b833 100%);
+    outline: none;
+  
+    transition: border, transform 0.2s;
+  }
+  
+  .imageInput label:hover {
+    transform: translateY(-3px);
+    border: 1.75px #414aa3 solid;
+  }
+
+  @media(max-width: 720px) {
+    .container {
+      width: 100vw;
+    }
+  }
