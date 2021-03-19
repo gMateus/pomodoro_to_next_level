@@ -2,6 +2,7 @@ import Cookies from 'js-cookie';
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 import styles from '../styles/components/SideBar.module.css'
+import { ChangeTheme } from './ChangeTheme';
 
 interface SideBarProps {
     page: 'dashboard' | 'leaderboard';
@@ -17,6 +18,13 @@ export function SideBar({ page }: SideBarProps) {
         Cookies.remove('name');
         Cookies.remove('currentExperience');
         Cookies.remove('userId');
+        Cookies.remove('currentTheme');
+        Cookies.remove('imagePath');
+        Cookies.remove('backgroundTheme');
+        Cookies.remove('colorNameProfile');
+        Cookies.remove('isUserAlreadySetName');
+        Cookies.remove('isGetNameModalOpen');
+        Cookies.remove('nomeProfile');
 
         router.push('/login');
     }
@@ -47,6 +55,7 @@ export function SideBar({ page }: SideBarProps) {
                     </Link>
                 </button>
             </div>
+            <ChangeTheme />
             <button onClick={handleLogout} style={{ marginBottom: '2rem', background: 'none', border: 'none' }}>
                 <img src="/icons/logout.svg" alt="logout" style={{ height: '1.5rem', width: '1.5rem' }} />
             </button>

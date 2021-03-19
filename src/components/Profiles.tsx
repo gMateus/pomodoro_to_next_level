@@ -9,18 +9,22 @@ import Cookies from 'js-cookie'
 export function Profile() {
 
     const level = Cookies.get('level')
-    //const { colorNameProfile } = useContext(ThemeContext)
+    const { colorNameProfile } = useContext(ThemeContext)
+    const { fotoProfile } = useContext(ProfileContext)
     const name = Cookies.get('name')
-    const imgPath = Cookies.get('imagePath');
+    const imgPath = fotoProfile
+
+    //console.log('console profile ' + imgPath)
+    //console.log('console name ' + name)
 
     return (
         <div className={styles.profileContainer}>
-            <img style={{ height: '4rem', width: '4rem', borderRadius: '50%' }} src={`https://pomodorotonextlevel.herokuapp.com/files/${imgPath}`} alt={`${name}-image`} />
+            <img style={{ height: '4rem', width: '4rem', borderRadius: '50%' }} src={`http://localhost:3001/files/${imgPath}`} alt={`${name}-image`} />
             <div className={styles.nameAndLevel}>
-                <strong className={styles.nameContainer}>
+                <strong className={styles.nameContainer} style={{ color: colorNameProfile }}>
                     {name}
                 </strong>
-                <p>Level {level}</p>
+                <p style={{ color: colorNameProfile }}>Level {level}</p>
             </div>
         </div >
     )

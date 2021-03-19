@@ -48,10 +48,11 @@ export default function Register() {
 
             const response = await api.post('users', formData)
             //alert('dados salvos nos cookies com sucesso')
+
+
+
             const data = response.data as responseData;
-
             console.log(data.id)
-
 
             Cookies.set('level', String(data.level));
             Cookies.set('currentExperience', String(data.currentExperience));

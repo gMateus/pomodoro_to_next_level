@@ -10,8 +10,6 @@
     align-items: flex-start;
     justify-content: space-around;
 
-    background: var(--background);
-
     height: 100vh;
 
     margin: 0 auto;
@@ -24,35 +22,40 @@
     
 }
 
-.leaderBoard > body {
+.leaderBoard > div {
     max-width: 990px;
+    
+    
 }
 
-.leaderBoard body > header {
+.leaderBoard div > header {
     display: flex;
     font-family: Inter;
     font-weight: 600;
     margin-bottom: 3rem;
+    
 }
 
-.leaderBoard body > div > header > div > strong {
+.leaderBoard div > div > header > div > strong {
     font-weight: 600;
     font-family: Inter;
     color: var(--text);
     font-size: 0.8rem;
+    
 
 }
 
-.leaderBoard body > div > header {
+.leaderBoard div > div > header {
     margin-top: 1.5rem;
     display: flex;
     width: 100%;
+    
 
     justify-content: space-between;
     padding-right: 3rem;
 }
 
-.leaderBoard body > div > header > div {
+.leaderBoard div > div > header > div {
     display: flex;
     width: 9rem;
 
@@ -83,6 +86,7 @@
     grid-template-columns: 4fr 9fr 7fr 5fr;
     border-radius: 5px;
     width: 100%;
+    
     background: var(--white);
 }
 
@@ -131,7 +135,7 @@
         flex-direction: column;
     }
 
-    .leaderBoard > body > div {
+    .leaderBoard > div > div {
         width: 100%;
     }
 }

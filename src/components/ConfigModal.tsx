@@ -8,14 +8,13 @@ export function ConfigModal() {
 
     const { escolhendoTemaAtual } = useContext(ThemeContext)
     const { isConfigureOpen } = useContext(ConfigModalContext)
-    const { alterarNome } = useContext(ProfileContext)
+    const { alterarNome, alterarFoto } = useContext(ProfileContext)
 
     const [currentHeight, setCurrentHeight] = useState('3rem')
     const [currentMarginTop, setCurrentMarginTop] = useState('1rem')
 
     useEffect(() => {
-        //console.log(isConfigureOpen)
-        setCurrentHeight('13.5rem')
+        setCurrentHeight('20rem')
         setCurrentMarginTop('2.4rem')
 
     }, [isConfigureOpen])
@@ -24,16 +23,67 @@ export function ConfigModal() {
         alterarNome()
     }
 
+    function mudarFoto() {
+        alterarFoto();
+    }
+
     //78  76 87 52
     return (
-        <div className={styles.configOpen} style={{ height: `${currentHeight}`, marginTop: `${currentMarginTop}` }} >
-            <strong /*onClick={() => escolhendoTemaAtual('especialTheme')}*/> Mudar tema</strong>
-            <button className={styles.theme} onClick={() => escolhendoTemaAtual('defaultTheme')}>Padrão</button>
-            <button className={styles.theme} onClick={() => escolhendoTemaAtual('darkDefaultTheme')}>Tema escuro</button>
-            <button className={styles.theme} onClick={() => escolhendoTemaAtual('blueTheme')}>Azul</button>
-            <button className={styles.theme} onClick={() => escolhendoTemaAtual('darkBlueTheme')}>Azul escuro</button>
-            <div>
-                <button className={styles.buttonStyle} onClick={mudarNome}>Alterar nome</button>
+        <div className={styles.overlay}>
+            <div
+                className={styles.configOpen}
+                style={{
+                    padding: '1rem'
+                }} >
+                <h1 style={{ height: '3rem' }}> Configurações</h1>
+
+                <div
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        marginLeft: '1.3rem'
+                    }}>
+                    <h2>Escolher tema</h2>
+                    <div>
+                        <button
+                            className={styles.theme} style={{ background: 'white', color: 'black' }}
+                            onClick={() => escolhendoTemaAtual('defaultTheme')}
+                        >Padrão</button>
+                        <button
+                            className={styles.theme} style={{ background: 'black', color: 'white' }}
+                            onClick={() => escolhendoTemaAtual('darkDefaultTheme')}
+                        >Tema escuro</button>
+                        <button
+                            className={styles.theme} style={{ background: 'cyan', color: 'black' }}
+                            onClick={() => escolhendoTemaAtual('blueTheme')}
+                        >Azul</button>
+                        <button
+                            className={styles.theme} style={{ background: 'blue', color: 'white' }}
+                            onClick={() => escolhendoTemaAtual('darkBlueTheme')}
+                        >Azul escuro</button>
+
+                    </div>
+                </div>
+                <div style={{ marginTop: '3rem', display: 'flex', justifyContent: 'space-around' }}>
+                    <div>
+                        <button
+                            className={styles.buttonStyle}
+                            onClick={mudarNome}
+                        >Alterar nome</button>
+                    </div>
+                    <div>
+                        <button
+                            className={styles.buttonStyle}
+                            onClick={mudarFoto}
+                        >Mudar Foto</button>
+                    </div>
+                    <div>
+                        <button
+                            className={styles.buttonStyle}
+                            onClick={mudarFoto}
+                        >Alterar senha</button>
+                    </div>
+                </div>
             </div>
         </div>
     )

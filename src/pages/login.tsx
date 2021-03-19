@@ -14,6 +14,7 @@ interface responseData {
     id: number;
     name: string;
     imagePath: string;
+    currentTheme: string;
 }
 
 export default function Login() {
@@ -42,7 +43,7 @@ export default function Login() {
 
         try {
             console.log(name)
-            console.log(password)
+            //console.log(password)
             const response = await api.post('users/login', { "name": `${name}`, "password": `${password}` });
             const data = response.data as responseData;
 
@@ -52,6 +53,7 @@ export default function Login() {
             Cookies.set('level', String(data.level));
             Cookies.set('currentExperience', String(data.currentExperience));
             Cookies.set('imagePath', data.imagePath);
+            Cookies.set('currentTheme', data.currentTheme)
 
         } catch (error) {
             return alert('Alguma coisa deu errada.');

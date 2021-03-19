@@ -1,11 +1,14 @@
 //import { ConfigModalProvider } from '../contexts/ConfigModal';
 import '../styles/global.css';
 import React from 'react';
+import { ThemeProvider } from '../contexts/ThemeContext';
 
 function MyApp({ Component, pageProps }) {
 
   return (
-    <Component {...pageProps} />
+    <ThemeProvider>
+      <Component {...pageProps} />
+    </ThemeProvider>
   )
 }
 

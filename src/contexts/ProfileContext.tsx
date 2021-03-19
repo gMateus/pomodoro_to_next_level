@@ -1,5 +1,6 @@
 import Cookies from "js-cookie"
-import { createContext, ReactNode, useEffect, useState } from "react"
+import React, { createContext, ReactNode, useEffect, useState } from "react"
+import { IconsProfileModal } from "../components/IconsProfileModal"
 import { NameModal } from "../components/NameModal"
 
 
@@ -10,13 +11,18 @@ interface ProfileContextData {
     isGetNameModalOpen: boolean;
     alterarNome: () => void;
     alterandoNome: (nome) => void;
+    alterarFoto: () => void;
+    fotoProfile: string;
+    fecharModal: () => void;
 }
 
 interface ProfileProviderProps {
     children: ReactNode,
     nomeProfile: string,
     isUserAlreadySetName: boolean,
-    isGetNameModalOpen: boolean
+    isGetNameModalOpen: boolean,
+    avatarProfile: string
+
 }
 
 interface currentNameProps {
@@ -29,8 +35,13 @@ export function ProfileProvider({ children, ...rest }: ProfileProviderProps) {
 
     const [nomeProfile, setNomeProfile] = useState(rest.nomeProfile)
 
+    const [fotoProfile, setFotoProfile] = useState(rest.avatarProfile)
+
     const [isGetNameModalOpen, setIsGetNameModalOpen] = useState(rest.isGetNameModalOpen)
     const [isUserAlreadySetName, setIsUserAlreadySetName] = useState(rest.isUserAlreadySetName)
+
+    const [isGetProfileModalOpen, setIsGetProfileModalOpen] = useState(rest.isGetNameModalOpen)
+    const [isUserAlreadySetPhoto, setIsUserAlreadySetPhoto] = useState(rest.isUserAlreadySetName)
 
     function alterandoNome(nome) {
         if (nome.length > 0 && nome.length <= 18) {
@@ -40,10 +51,19 @@ export function ProfileProvider({ children, ...rest }: ProfileProviderProps) {
         }
     }
 
+    function fecharModal() {
+        setIsGetProfileModalOpen(false)
+    }
+
     function confirmeThanUserAlreadySetName() {
         setIsUserAlreadySetName(true)
         setIsGetNameModalOpen(false)
         console.log('Usuário já escolheu o nome.')
+    }
+
+    function alterarFoto() {
+        setIsUserAlreadySetPhoto(false)
+        setIsGetProfileModalOpen(true)
     }
 
     function alterarNome() {
@@ -58,7 +78,8 @@ export function ProfileProvider({ children, ...rest }: ProfileProviderProps) {
         //console.log('isUserAlreadySetName is ' + isUserAlreadySetName)
         Cookies.set('isGetNameModalOpen', String(isGetNameModalOpen), { expires: 31 })
         //console.log('isGetNameModalOpen is ' + isGetNameModalOpen)
-    }, [nomeProfile, isGetNameModalOpen, isUserAlreadySetName])
+        Cookies.set('imagePath', String(fotoProfile), { expires: 31 })
+    }, [nomeProfile, isGetNameModalOpen, isUserAlreadySetName, fotoProfile])
 
     return (
         <ProfileContext.Provider
@@ -68,11 +89,15 @@ export function ProfileProvider({ children, ...rest }: ProfileProviderProps) {
                 isUserAlreadySetName,
                 isGetNameModalOpen,
                 alterarNome,
-                alterandoNome
+                alterandoNome,
+                alterarFoto,
+                fotoProfile,
+                fecharModal
             }}
         >
             {children}
             { isUserAlreadySetName ? null : isGetNameModalOpen && <NameModal />}
+            { isUserAlreadySetPhoto ? null : isGetProfileModalOpen && <IconsProfileModal />}
         </ProfileContext.Provider>
     )
 }

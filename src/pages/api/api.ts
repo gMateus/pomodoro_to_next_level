@@ -2,17 +2,11 @@ import axios from 'axios';
 
 
 const api = axios.create({
-    baseURL: `https://pomodorotonextlevel.herokuapp.com/`
+    baseURL: `${process.env.BASEURL}`
 });
 
 
-
-
-
-
-
 export default api;
-
 
 
 /*
