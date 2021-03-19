@@ -139,23 +139,23 @@ export function IconsProfileModal() {
                     <strong> Escolha seu Avatar</strong>
                     <div>
                         <button className={styles.button} onClick={e => { alterandoAvatar(avatarList.man.title) }}>
-                            <img style={iconsClass} src={`http://localhost:3001/files/man.svg`} alt={`icons-image`} />
+                            <img style={iconsClass} src={`icons/man.svg`} alt={`icons-image`} />
                         </button>
 
                         <button className={styles.button} onClick={e => { alterandoAvatar(avatarList.oldMan.title) }}>
-                            <img style={iconsClass} src={`http://localhost:3001/files/old-man.svg`} alt={`icons-image`} />
+                            <img style={iconsClass} src={`icons/old-man.svg`} alt={`icons-image`} />
                         </button>
 
                         <button className={styles.button} onClick={e => { alterandoAvatar(avatarList.user.title) }}>
-                            <img style={iconsClass} src={`http://localhost:3001/files/user.svg`} alt={`icons-image`} />
+                            <img style={iconsClass} src={`icons/user.svg`} alt={`icons-image`} />
                         </button>
 
                         <button className={styles.button} onClick={e => { alterandoAvatar(avatarList.girl.title) }}>
-                            <img style={iconsClass} src={`http://localhost:3001/files/girl.svg`} alt={`icons-image`} />
+                            <img style={iconsClass} src={`icons/girl.svg`} alt={`icons-image`} />
                         </button>
 
                         <button className={styles.button} onClick={e => { alterandoAvatar(avatarList.fitness.title) }}>
-                            <img style={iconsClass} src={`http://localhost:3001/files/fitness.svg`} alt={`icons-image`} />
+                            <img style={iconsClass} src={`icons/fitness.svg`} alt={`icons-image`} />
                         </button>
                     </div>
                 </div>
