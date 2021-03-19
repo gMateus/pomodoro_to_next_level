@@ -61,8 +61,8 @@ export function ThemeProvider({ children, ...rest }: ThemeContextProps) {
         }
 
         Cookies.set('currentTheme', String(currentTheme), { expires: 31 })
-
-        escolhendoTemaAtual2
+        console.log("ok2")
+        escolhendoTemaAtual2()
         //alert("ok")
     }, [currentTheme])
 
@@ -72,9 +72,10 @@ export function ThemeProvider({ children, ...rest }: ThemeContextProps) {
         if (!currentTheme || !userId) {
             return;
         }
-
+        console.log("ok")
         try {
             //const response = 
+            console.log(currentTheme)
             await api.put('alterarTheme', { "userId": `${userId}`, "currentTheme": `${currentTheme}` })
             //const data = response.data as responseData;
 

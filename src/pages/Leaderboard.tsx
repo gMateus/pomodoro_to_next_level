@@ -36,21 +36,24 @@ export default function LeaderBoard({ LeaderBoard }: LeaderBoardProps) {
         //console.log("month: " + getMonthCreatedAt)
         //console.log("year: " + getYearCreatedAt)
 
-        if (getMonthCreatedAt == 2 && getYearCreatedAt == 2020) {
+        if (getMonthCreatedAt == 3 && getYearCreatedAt == 2021) {
             //console.log("tem borda especial? " + true)
             //console.log("**********************")
             testando2 = true
-            return testando2
+
         } else {
             //console.log("tem borda especial? " + false)
             //console.log("**********************")
             testando2 = false
-            return testando2
+
         }
 
-        //console.log(hasSpecialBorder)
+        console.log(testando2)
 
-        //return testando2
+        console.log(getMonthCreatedAt, ' ',
+            getYearCreatedAt)
+
+        return testando2
     })
 
 
@@ -90,11 +93,11 @@ export default function LeaderBoard({ LeaderBoard }: LeaderBoardProps) {
 
                                                 {teste[index] ? (
                                                     <div className={styles.imagem} >
-                                                        <img src={`http://localhost:3001/files/${user.imagePath}`} style={{ height: '4rem', width: '4rem', border: '1px solid red' }} alt="user image" />
+                                                        <img src={`https://pomodorotonextlevel.herokuapp.com/files/${user.imagePath}`} style={{ height: '4rem', width: '4rem', border: '1px solid red' }} alt="user image" />
                                                     </div>
                                                 ) : (
                                                     <div className={styles.imagem} >
-                                                        <img src={`http://localhost:3001/files/${user.imagePath}`} style={{ height: '4rem', width: '4rem' }} alt="user image" />
+                                                        <img src={`https://pomodorotonextlevel.herokuapp.com/files/${user.imagePath}`} style={{ height: '4rem', width: '4rem' }} alt="user image" />
                                                     </div>
                                                 )}
 

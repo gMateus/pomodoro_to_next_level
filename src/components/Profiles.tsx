@@ -19,7 +19,7 @@ export function Profile() {
 
     return (
         <div className={styles.profileContainer}>
-            <img style={{ height: '4rem', width: '4rem', borderRadius: '50%' }} src={`http://localhost:3001/files/${imgPath}`} alt={`${name}-image`} />
+            <img style={{ height: '4rem', width: '4rem', borderRadius: '50%' }} src={`https://pomodorotonextlevel.herokuapp.com/files/${imgPath}`} alt={`${name}-image`} />
             <div className={styles.nameAndLevel}>
                 <strong className={styles.nameContainer} style={{ color: colorNameProfile }}>
                     {name}
