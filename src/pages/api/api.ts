@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-
+const apiSecret = process.env.BASE_URL
+console.log(apiSecret)
 const api = axios.create({
-    baseURL: `${process.env.BASEURL}`
+    baseURL: `${apiSecret}`
 });
 
 
