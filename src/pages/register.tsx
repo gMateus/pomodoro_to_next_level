@@ -35,7 +35,7 @@ export default function Register() {
     }, [])
 
     const handleRegister = useCallback(async () => {
-        if (!formRef.current[0].value || !formRef.current[1].value || !formRef.current[2].files[0]) {
+        if (!formRef.current[0].value || !formRef.current[1].value) {
             return;
         }
 
@@ -91,10 +91,6 @@ export default function Register() {
                             className={styles.input} style={{ width: '20rem' }} />
                         <input type="text" name="password" placeholder="senha"
                             className={styles.input} style={{ width: '20rem' }} />
-                        <div className={styles.imageInput}>
-                            <label htmlFor="images">Selecionar imagem de perfil</label>
-                            <input type="file" name="image" id="images" />
-                        </div>
                         <button id='name-a' type="button"
                             onClick={handleRegister}
                             style={{
